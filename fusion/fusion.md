@@ -1,0 +1,4 @@
+ 
+# fusion module
+
+::: multidefusion.fusion
