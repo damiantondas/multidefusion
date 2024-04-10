@@ -36,6 +36,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://damiantondas.github.io/multidefusion/results/</loc>
+         <lastmod>2024-04-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://damiantondas.github.io/multidefusion/usage/</loc>
          <lastmod>2024-04-10</lastmod>
          <changefreq>daily</changefreq>
