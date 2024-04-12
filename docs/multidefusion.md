@@ -1,4 +1,0 @@
- 
-# multidefusion module
-
-::: multidefusion.multidefusion

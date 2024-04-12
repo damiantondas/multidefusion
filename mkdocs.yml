@@ -82,7 +82,6 @@ nav:
     - Examples:
         - examples/intro.ipynb
     - API Reference:
-          - multidefusion module: multidefusion.md
           - results module: results.md
           - integration module: integration.md
           - datainterface module: datainterface.md
