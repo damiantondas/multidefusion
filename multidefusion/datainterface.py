@@ -119,7 +119,7 @@ class BaseData:
         """
         Process timestamp columns in the data.
 
-        Converts "YYYY", "MM", "DD" columns into a single "timestamp" column,
+        Converts GNSS, SBAS, and PSI "YYYY", "MM", "DD" columns into a single "timestamp" column,
         sets it as the index, and resamples the data based on the time interval.
         """
         self.data["timestamp"] = pd.to_datetime(self.data[["YYYY", "MM", "DD"]].astype(int).astype(str).apply(" ".join, 1), format="%Y %m %d")
@@ -129,7 +129,7 @@ class BaseData:
 
     def convert_range_into_two_timestamps(self) -> None:
         """
-        Convert range columns into two timestamp columns.
+        Convert DInSAR range columns into two timestamp columns.
 
         Converts "YYYY1", "MM1", "DD1", "YYYY2", "MM2", "DD2" columns into
         "timestamp1" and "timestamp2" columns, and sets them as the index.

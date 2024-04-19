@@ -15,6 +15,7 @@ class DataIntegration:
     Args:
         station_name (str): The name of the station.
         path (str): The base path where data files are located.
+        noise (float): The noise parameter for the Kalman filter.
         port (int): The port is necessary for parallel displaying of subsequent integration results on localhost.
 
     Attributes:
@@ -37,15 +38,6 @@ class DataIntegration:
     TIME_INTERVAL = 'D'
 
     def __init__(self, station_name: str, path: str, noise: float, port: int) -> None:
-        """
-        Initializes DataIntegration object.
-
-        Args:
-            station_name (str): The name of the station.
-            path (str): The base path where data files are located.
-            noise (float): The noise parameter for the Kalman filter.
-            port (int): The definition of subsequent port on localhost.
-        """
         self.station = station_name
         self.path = path
         self.port = port

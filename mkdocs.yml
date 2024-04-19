@@ -76,13 +76,10 @@ nav:
     - Installation: installation.md
     - Usage: usage.md
     - Contributing: contributing.md
-    - FAQ: faq.md
     - Changelog: changelog.md
     - Report Issues: https://github.com/damiantondas/multidefusion/issues
-    - Examples:
-        - examples/intro.ipynb
     - API Reference:
+          - fusion module: fusion.md
+          - datainterface module: datainterface.md
           - results module: results.md
           - integration module: integration.md
-          - datainterface module: datainterface.md
-          - fusion module: fusion.md

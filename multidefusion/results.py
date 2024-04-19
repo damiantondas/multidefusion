@@ -3,11 +3,38 @@ import plotly.subplots as sp
 from dateutil.relativedelta import relativedelta
 import pandas as pd
 from statistics import mean
-from dash import dash, dcc, html, Input, Output
+from dash import dash, dcc, html, Input, Output, ctx
 import webbrowser
 
 class Figures:
-    """Class for creating displacement plots."""
+    """Class for creating displacement plots.
+    
+    Plot features:
+        Visualisation: The default port for displaying results on localhost is 8050. For more than one station, the outputs will be displayed simultaneously on consecutive ports.
+        Legend: Working for all of the traces and providing a general overview of the results by activating or deactivating groups of data using the legend entities.
+        Hover: Working within a single trace and providing a detailed overview of the results using the cursor.
+        Table: To provide the most relevant information about integration procedure.
+        Customisation: To provide individual ranges for dates or values:
+            a) Dates range - adjustable by providing initial and last date or by using the calendar.
+            b) Horizonltal range - adjustable by providing minimum and maximum values.
+            c) Vertical & LOS range - adjustable by providing minimum and maximum values.
+            d) Rate range - adjustable by providing minimum and maximum values.
+        Buttons: To facilitate manipulation between the traces:
+            a) Restore default: To restore the original ranges of dates or values after user's manipulations.
+            b) Sync ranges: To synchronise the ranges to the same values (by default the horizontal and vertical ranges of displacement are disjoint).
+        Mode bar: A default toolbar of the plotly library located in the top right corner:
+            a) Download plot: To save the plot in .svg format after user's manipulations.
+            b) Edit in Chart Studio: To provide more advanced modifications in the plotly Chart Studio.
+            c) Zoom: Working for a selected part of the trace. Double click on the trace to zoom back out.
+            d) Pan: Working within a single trace by moving the current view of the trace.
+            e) Draw line: Working within a single trace.
+            f) Draw circle: Working within a single trace.
+            g) Draw rectangle: Working within a single trace.
+            h) Erase the active shape: A single-click to acitivate the shape.
+            i) Zoom in: Working simultaneously for all of the traces.
+            j) Zoom out: Working simultaneously for all of the traces.
+            k) Reset axces: Working simultaneously for all of the traces.
+    """
     def __init__(self, data_integration):
         """
         Initialize Figures object.
@@ -64,12 +91,32 @@ class Figures:
     
     @staticmethod
     def find_max_total(df):
+        """
+        Find the maximum value (positive or negative) from each column from a set of dataframe.
+
+        Args:
+            df: dataframe
+
+        Returns:
+            Maximum value from from each column from a set of dataframe.
+        """
         return df.apply(lambda col: col.max() if col.max() >= -col.min() else col.min(), axis=0)
     
     @staticmethod
     def add_vline(fig, timestamp_min_value, timestamp_max_value, row, col):    
-        # THICKER LINE TO INDICATE THE BEGINNING OF THE YEAR
-        
+        """
+        Add Thicker line for each subplot to indicate the beginning of a year
+
+        Args:
+            fig: Figure
+            timestamp_min_value: Earliest date
+            timestamp_max_value: Lastest date
+            row: figure's row
+            col: figure's column
+
+        Returns:
+            None
+        """
         [fig.add_shape(x0=date, x1=date, y0=-10, y1=10, type="line", line=dict(color='lightgray', width=2), layer="below", row=row, col=col) for date in
         pd.date_range(start=timestamp_min_value - relativedelta(years=2),
         end=timestamp_max_value + relativedelta(years=2), freq='YS')]
@@ -659,26 +706,41 @@ class Figures:
                     'showEditInChartStudio': True,
                     'plotlyServerURL': "https://chart-studio.plotly.com",
                     'modeBarButtonsToRemove': ['select', 'lasso2d', 'autoScale'],
-                    'modeBarButtonsToAdd': ['zoomIn2d', 'zoomOut2d', 'drawline', 'drawcircle', 'drawrect', 'eraseshape', 'sendDataToCloud']
+                    'modeBarButtonsToAdd': ['drawline', 'drawcircle', 'drawrect', 'eraseshape', 'sendDataToCloud']
                     }
-            ),])
+                ),
+            ])
         
         container2 = html.Div([
             html.H2('Customise dates range',
                     style={'fontsize': '25px',
-                           'margin-bottom': '5px'}),
+                           'margin-bottom': '5px',
+                           'margin-left': '65px',}),
             
 		    dcc.DatePickerRange(
 				id='date_range',
-				#initial_visible_month=dates_range[0],
 				display_format='DD/MM/YYYY',
 				show_outside_days = True,
 				start_date=dates_range[0],
 				end_date=dates_range[1],
                 number_of_months_shown=2,
                 style={'border': '2px solid black',
-                       'margin-bottom': '10px'},
+                       'margin-bottom': '10px',
+                       'vertical-align': 'middle',
+                       'display': 'inline-block'},
 			),
+            
+            html.Button('Restore default',
+                        id='reset_dates',
+                        n_clicks=0,
+                        style={'fontsize': '20px',
+                               'font-weight': 'bold',
+                               'height': '45px', 
+                               'width': '100px', 
+                               'margin-left': '10px',
+                               'margin-bottom': '10px',
+                               'vertical-align': 'middle',
+                               'display': 'inline-block'}),
             
             html.Div(id='output_x_range',
                      style={'fontsize': '15px',
@@ -686,15 +748,16 @@ class Figures:
             
             html.H2('Customise values range',
                     style={'fontsize': '25px',
-                           'margin-bottom': '5px'}),
-                           
+                           'margin-bottom': '5px',
+                           'margin-left': '60px'}),
+                                     
+            html.Div([
             dcc.Dropdown(
                 id = 'show_or_hide',
                 options=[
                     {'label': 'Horizontal range [m]', 'value': 'hor'},
                     {'label': 'Vertical & LOS range [m]', 'value': 'ver'},
-                    {'label': 'Rate range [mm/day]', 'value': 'rate'}
-                ],
+                    {'label': 'Rate range [mm/day]', 'value': 'rate'}],
                 value = 'hor',
                 clearable = False,
                 style={'width': '286px',
@@ -702,10 +765,25 @@ class Figures:
                        'border': '0.2px solid black',
                        'border-radius': '0',
                        'height': '40px', 
-                       'margin-bottom': '5px'},
+                       'vertical-align': 'middle',
+                       'display': 'inline-block'},
             ),
+            
+            html.Button('Sync ranges',
+                        id='fit_ranges',
+                        n_clicks=0,
+                        style={'fontsize': '20px',
+                               'font-weight': 'bold',
+                               'height': '38px', 
+                               'width': '100px',
+                               'margin-left': '10px',
+                               'vertical-align': 'middle',
+                               'display': 'inline-block'}
+            ),
+            ]),
 
-            html.Div(id = 'hor_options', children=[
+            html.Div([
+                html.Div(id = 'hor_options', children=[
                 dcc.Input(
                 id = 'hor_min',
                 placeholder = 'Minimum value',
@@ -731,6 +809,7 @@ class Figures:
                 )
             ],
             style={'display': 'block',
+                   'margin-top': '5px',
                    'margin-bottom': '10px'},
             ),
             
@@ -786,20 +865,37 @@ class Figures:
                          'border': '1px solid black',
                          'height': '30px', 
                          'width': '138px'}
-                )
+                ),
+                
             ],
             style={'display': 'block',
                    'margin-bottom': '10px'},
+            )
+            ], style={'display': 'inline-block',
+                      'vertical-align': 'middle'}),
+
+            
+            html.Button('Restore default',
+                        id='reset_values',
+                        n_clicks=0,
+                        style={'fontsize': '20px',
+                               'font-weight': 'bold',
+                               'height': '38px', 
+                               'width': '100px',
+                               'margin-left': '10px',
+                               'display': 'inline-block',
+                               'vertical-align': 'middle',}
             ),
+            
             
             html.Div(id='output_y_range',
                      style={'fontsize': '15px',
                             'color': 'red'}
-                     )
+                     ),
         ], 
         style={'position': 'absolute', 
                'top': f'{picker_position}px', 
-               'left': '155px', 
+               'left': '145px', 
                'width': 'fit-content',
                'fontFamily': 'Helvetica',
                'color': 'black', 
@@ -809,10 +905,10 @@ class Figures:
         app.layout = html.Div([container1, container2])
 		
         @app.callback(
-           Output('hor_options', 'style'),
-           Output('ver_options', 'style'),
-           Output('rate_options', 'style'),
-           Input('show_or_hide', 'value'))
+            Output('hor_options', 'style'),
+            Output('ver_options', 'style'),
+            Output('rate_options', 'style'),
+            Input('show_or_hide', 'value'))
 
         def show_hide_element(visibility_state):
             if visibility_state == 'hor':
@@ -871,6 +967,36 @@ class Figures:
         
             return fig, warning_dates, warning_values
         
+
+        @app.callback(
+            Output('date_range', 'start_date'),
+            Output('date_range', 'end_date'),
+            Input('reset_dates', 'n_clicks')
+        )
+        
+        def reset_date_range(n_clicks):
+            return dates_range[0], dates_range[1]
+        
+        @app.callback(
+          [Output('hor_min', 'value'), 
+            Output('hor_max', 'value'),
+            Output('ver_min', 'value'), 
+            Output('ver_max', 'value'),
+            Output('rate_min', 'value'), 
+            Output('rate_max', 'value')],
+            Input('reset_values', 'n_clicks'),
+            Input('fit_ranges', 'n_clicks'),
+            prevent_initial_call=True
+          )
+        
+        def reset_fit_range(btn1, btn2):
+            min_range = float("{:.3f}".format(min(range_ver[0], range_hor[0])))
+            max_range = float("{:.3f}".format(max(range_ver[1], range_hor[1])))
+            if 'reset_values' == ctx.triggered_id:
+                return float("{:.3f}".format(range_hor[0])), float("{:.3f}".format(range_hor[1])), float("{:.3f}".format(range_ver[0])), float("{:.3f}".format(range_ver[1])),  float("{:.1f}".format(range_rate[0])), float("{:.1f}".format(range_rate[1]))
+            if 'fit_ranges' == ctx.triggered_id:
+                return min_range, max_range, min_range, max_range, float("{:.1f}".format(range_rate[0])), float("{:.1f}".format(range_rate[1]))
+       
         
         print("MultiDEFusion procedure accomplished.\n")
         app.run_server(debug=True, host="localhost", port=self.data_integration.port);
