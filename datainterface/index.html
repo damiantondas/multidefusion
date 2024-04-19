@@ -15,10 +15,10 @@
         <link rel="canonical" href="https://damiantondas.github.io/multidefusion/datainterface/">
       
       
-        <link rel="prev" href="../integration/">
+        <link rel="prev" href="../fusion/">
       
       
-        <link rel="next" href="../fusion/">
+        <link rel="next" href="../results/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -346,26 +346,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../faq/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    FAQ
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../changelog/" class="md-nav__link">
         
   
@@ -403,69 +383,6 @@
       
   
   
-  
-  
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
-        
-          
-          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    Examples
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_8">
-            <span class="md-nav__icon md-icon"></span>
-            Examples
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../examples/intro/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Intro
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
     
   
   
@@ -478,10 +395,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
         
           
-          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -492,8 +409,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_9">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             API Reference
           </label>
@@ -506,32 +423,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../results/" class="md-nav__link">
+      <a href="../fusion/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    results module
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../integration/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    integration module
+    fusion module
   </span>
   
 
@@ -879,11 +775,32 @@
   
   
     <li class="md-nav__item">
-      <a href="../fusion/" class="md-nav__link">
+      <a href="../results/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    fusion module
+    results module
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../integration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    integration module
   </span>
   
 
@@ -1645,7 +1562,7 @@
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Process timestamp columns in the data.</span>
 
-<span class="sd">        Converts &quot;YYYY&quot;, &quot;MM&quot;, &quot;DD&quot; columns into a single &quot;timestamp&quot; column,</span>
+<span class="sd">        Converts GNSS, SBAS, and PSI &quot;YYYY&quot;, &quot;MM&quot;, &quot;DD&quot; columns into a single &quot;timestamp&quot; column,</span>
 <span class="sd">        sets it as the index, and resamples the data based on the time interval.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;timestamp&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[[</span><span class="s2">&quot;YYYY&quot;</span><span class="p">,</span> <span class="s2">&quot;MM&quot;</span><span class="p">,</span> <span class="s2">&quot;DD&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;%Y %m </span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -1655,7 +1572,7 @@
 
     <span class="k">def</span> <span class="nf">convert_range_into_two_timestamps</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Convert range columns into two timestamp columns.</span>
+<span class="sd">        Convert DInSAR range columns into two timestamp columns.</span>
 
 <span class="sd">        Converts &quot;YYYY1&quot;, &quot;MM1&quot;, &quot;DD1&quot;, &quot;YYYY2&quot;, &quot;MM2&quot;, &quot;DD2&quot; columns into</span>
 <span class="sd">        &quot;timestamp1&quot; and &quot;timestamp2&quot; columns, and sets them as the index.</span>
@@ -1873,7 +1790,7 @@
 
   <div class="doc doc-contents ">
   
-      <p>Convert range columns into two timestamp columns.</p>
+      <p>Convert DInSAR range columns into two timestamp columns.</p>
 <p>Converts "YYYY1", "MM1", "DD1", "YYYY2", "MM2", "DD2" columns into
 "timestamp1" and "timestamp2" columns, and sets them as the index.</p>
 
@@ -1891,7 +1808,7 @@
 <span class="normal">139</span>
 <span class="normal">140</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">convert_range_into_two_timestamps</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Convert range columns into two timestamp columns.</span>
+<span class="sd">    Convert DInSAR range columns into two timestamp columns.</span>
 
 <span class="sd">    Converts &quot;YYYY1&quot;, &quot;MM1&quot;, &quot;DD1&quot;, &quot;YYYY2&quot;, &quot;MM2&quot;, &quot;DD2&quot; columns into</span>
 <span class="sd">    &quot;timestamp1&quot; and &quot;timestamp2&quot; columns, and sets them as the index.</span>
@@ -2412,7 +2329,7 @@
   <div class="doc doc-contents ">
   
       <p>Process timestamp columns in the data.</p>
-<p>Converts "YYYY", "MM", "DD" columns into a single "timestamp" column,
+<p>Converts GNSS, SBAS, and PSI "YYYY", "MM", "DD" columns into a single "timestamp" column,
 sets it as the index, and resamples the data based on the time interval.</p>
 
           <details class="quote">
@@ -2431,7 +2348,7 @@ sets it as the index, and resamples the data based on the time interval.</p>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Process timestamp columns in the data.</span>
 
-<span class="sd">    Converts &quot;YYYY&quot;, &quot;MM&quot;, &quot;DD&quot; columns into a single &quot;timestamp&quot; column,</span>
+<span class="sd">    Converts GNSS, SBAS, and PSI &quot;YYYY&quot;, &quot;MM&quot;, &quot;DD&quot; columns into a single &quot;timestamp&quot; column,</span>
 <span class="sd">    sets it as the index, and resamples the data based on the time interval.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;timestamp&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[[</span><span class="s2">&quot;YYYY&quot;</span><span class="p">,</span> <span class="s2">&quot;MM&quot;</span><span class="p">,</span> <span class="s2">&quot;DD&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;%Y %m </span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span>

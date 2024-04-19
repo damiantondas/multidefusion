@@ -1,11 +1,3 @@
 # Changelog
 
-## v0.0.1 - Date
-
-**Improvement**:
-
--   TBD
-
-**New Features**:
-
--   TBD
+## v0.0.11 - 19.04.2024
