@@ -74,6 +74,7 @@ markdown_extensions:
 nav:
     - Home: index.md
     - Installation: installation.md
+    - Input files structure: input.md
     - Usage: usage.md
     - Contributing: contributing.md
     - Changelog: changelog.md
