@@ -3,7 +3,7 @@ from multidefusion.integration import DataIntegration
 from multidefusion.results import Figures
 
 
-def multidefusion(stations, path, method, noise):
+def run_fusion(stations, path, method, noise):
     """The software provides integration of permanent GNSS data and radar InSAR observations, considering a particular computational methods such as DInSAR, SBAS and PSI.
     The integration procedure can include a single 'station' folder (e.g., stations = ["PI01"]) stored in the 'path', a list of stations (e.g., stations = ["PI01", "PI02", ...]) or ALL of them (stations = "ALL").
     For an particular station folder, it is necessary to save the geodetic data as ASCII files.

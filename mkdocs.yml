@@ -79,6 +79,7 @@ nav:
     - Contributing: contributing.md
     - Changelog: changelog.md
     - Report Issues: https://github.com/damiantondas/multidefusion/issues
+    - Authors: authors.md
     - API Reference:
           - fusion module: fusion.md
           - datainterface module: datainterface.md
