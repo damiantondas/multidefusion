@@ -1,4 +1,4 @@
-# Installation
+# MultiDEFusion Installation
 
 ## Stable release
 

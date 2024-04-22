@@ -282,7 +282,7 @@ class DataIntegration:
         else:
             suffix = parts[2][0].isdigit()
             
-            if suffix is False:
+            if suffix is True:
                 suffix2 = parts[2][0]
 
         return (prefix, number, suffix, suffix2)
