@@ -590,11 +590,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../results/" class="md-nav__link">
+      <a href="../integration/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    results module
+    integration module
   </span>
   
 
@@ -611,11 +611,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../integration/" class="md-nav__link">
+      <a href="../results/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    integration module
+    results module
   </span>
   
 
@@ -727,7 +727,7 @@
 
 
 <h1 id="input-files-structure">Input files structure<a class="headerlink" href="#input-files-structure" title="Permanent link">&para;</a></h1>
-<p>The library is based on geodetic observations stored in the form of text files. Maintenance of the specific structure for all input files is necessary to ensure the successful completion of the integration procedure. To get the trial dataset for the MultiDEFusion library, see <a href="../trial.md">Trial packages</a>.</p>
+<p>The library is based on geodetic observations stored in the form of text files. Maintenance of the specific structure for all input files is necessary to ensure the successful completion of the integration procedure. To get the trial dataset for the MultiDEFusion library, see <a href="../trial/">Trial packages</a>.</p>
 <h2 id="the-structure-of-names-of-input-file">The structure of names of input file:<a class="headerlink" href="#the-structure-of-names-of-input-file" title="Permanent link">&para;</a></h2>
 <ol>
 <li>GNSS: "GNSS.txt" (Mandatory file)</li>
@@ -736,17 +736,19 @@
 <li>'<em>Type</em>'_'<em>Orbit</em>'_'<em>Element</em>'.txt. The '<em>Element</em>' part is not mandatory.
  where:</li>
 <li>'<em>Type</em>' is a mandatory signature of the InSAR calculation method. Allowed values: "DInSAR", "SBAS" or "PSI".</li>
-<li>'<em>Orbit</em>' is a mandatory signature of InSAR orbit. Allowed types: <code>str</code> or <code>int</code>, e.g., "Asc", "Desc", "51", "123", ...</li>
+<li>'<em>Orbit</em>' is a mandatory signature of InSAR orbit. Allowed types: <code>str</code> or <code>int</code>, e.g., "Asc", "Desc", "51", "123", etc.</li>
 <li>'<em>Element</em>' is a non-mandatory signature of a particular pixel or PS point. Allowed types: <code>str</code> or <code>int</code>, e.g., "1", "10254", "main", etc.</li>
 </ul>
 </li>
 </ol>
 <h2 id="restrictions-on-the-input-files">Restrictions on the input files:<a class="headerlink" href="#restrictions-on-the-input-files" title="Permanent link">&para;</a></h2>
-<p>1) The "GNSS.txt" is a mandatory file.
-2) The InSAR '<em>Type</em>' can be realised only by the "DInSAR", "SBAS" or "PSI" signature.
-3) The number of distinct InSAR '<em>Orbit</em>' signatures must be less than or equal to 3.
-4) The number of distinct InSAR '<em>Element</em>' signatures within particular '<em>Orbit</em>' must be less than or equal to 9.
-5) The number of distinct InSAR '<em>Element</em>' signatures within particular '<em>Type</em>' must be less than or equal to 10.</p>
+<ol>
+<li>The "GNSS.txt" is a mandatory file.</li>
+<li>The InSAR '<em>Type</em>' can be realised only by the "DInSAR", "SBAS" or "PSI" signature.</li>
+<li>The number of distinct InSAR '<em>Orbit</em>' signatures must be less than or equal to 3.</li>
+<li>The number of distinct InSAR '<em>Element</em>' signatures within particular '<em>Orbit</em>' must be less than or equal to 9.</li>
+<li>The number of distinct InSAR '<em>Element</em>' signatures within particular '<em>Type</em>' must be less than or equal to 10.</li>
+</ol>
 <h2 id="headers-and-data-columns-structure-in-the-input-files">Headers and data columns structure in the input files:<a class="headerlink" href="#headers-and-data-columns-structure-in-the-input-files" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
@@ -880,7 +882,7 @@
 </li>
 </ol>
 <p><a href="https://repository.tudelft.nl/islandora/object/uuid%3Aa83859d5-c034-427e-b6a9-114c4b008d19">Hanssen, R. (2001).</a> Radar interferometry: Data interpretation and error analysis.
-<a href="https://doi.org/10.1007/s00190-023-01789-z">Tondaś, D. et al. (2023).</a> Kalman filter-based integration of GNSS and InSAR observations for local nonlinear strong deformations.</p>
+ <a href="https://doi.org/10.1007/s00190-023-01789-z">Tondaś, D. et al. (2023).</a> Kalman filter-based integration of GNSS and InSAR observations for local nonlinear strong deformations.</p>
 
 
 
@@ -903,7 +905,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-04-24T18:57:13+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-04-24</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-04-24T19:30:31+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-04-24</span>
   </span>
 
     
