@@ -40,7 +40,7 @@ The description of initial parameters:
 
 ## Examples
 
-1. An example script to run fusion for `ALL` stations in `/path/to/multidefusion_trial/` folder using `forward-backward` method with `0.03` mm/day<sup>2</sup> noise level. To get trial MultiDEFusion repository see [Trail](../trial.md) section:  
+1. An example script to run fusion for `ALL` stations in `/path/to/multidefusion_trial/` folder using `forward-backward` method with `0.03` mm/day<sup>2</sup> noise level. To get trial MultiDEFusion repository see [Trial](../trial/) section:  
 
     ```
     from multidefusion import run_fusion
