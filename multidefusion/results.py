@@ -9,31 +9,34 @@ import webbrowser
 class Figures:
     """Class for creating displacement plots.
     
-    Plot features:
-        Visualisation: The default port for displaying results on localhost is 8050. For more than one station, the outputs will be displayed simultaneously on consecutive ports.
-        Legend: Working for all of the traces and providing a general overview of the results by activating or deactivating groups of data using the legend entities.
-        Hover: Working within a single trace and providing a detailed overview of the results using the cursor.
-        Table: To provide the most relevant information about integration procedure.
-        Customisation: To provide individual ranges for dates or values:
-            a) Dates range - adjustable by providing initial and last date or by using the calendar.
-            b) Horizonltal range - adjustable by providing minimum and maximum values.
-            c) Vertical & LOS range - adjustable by providing minimum and maximum values.
-            d) Rate range - adjustable by providing minimum and maximum values.
-        Buttons: To facilitate manipulation between the traces:
-            a) Restore default: To restore the original ranges of dates or values after user's manipulations.
-            b) Sync ranges: To synchronise the ranges to the same values (by default the horizontal and vertical ranges of displacement are disjoint).
-        Mode bar: A default toolbar of the plotly library located in the top right corner:
-            a) Download plot: To save the plot in .svg format after user's manipulations.
-            b) Edit in Chart Studio: To provide more advanced modifications in the plotly Chart Studio.
-            c) Zoom: Working for a selected part of the trace. Double click on the trace to zoom back out.
-            d) Pan: Working within a single trace by moving the current view of the trace.
-            e) Draw line: Working within a single trace.
-            f) Draw circle: Working within a single trace.
-            g) Draw rectangle: Working within a single trace.
-            h) Erase the active shape: A single-click to acitivate the shape.
-            i) Zoom in: Working simultaneously for all of the traces.
-            j) Zoom out: Working simultaneously for all of the traces.
-            k) Reset axces: Working simultaneously for all of the traces.
+    The final plot is created involving the Plotly library and Dash framework. The graphic representation of the results is automatically launched on the localhost server on port 8050.
+
+    The most important plot features:
+
+    1. Visualisation: The default port for displaying results on localhost is 8050. For more than one station, the outputs will be displayed simultaneously on consecutive ports.
+    2. Legend: Work for all of the traces and provide a general overview of the results by activating or deactivating groups of data using the legend entities.
+    3. Hover: Working within a single trace and providing a detailed overview of the results using the cursor.
+    4. Table: To provide the most relevant information about the integration procedure.
+    5. Customisation: To provide individual ranges for dates or values:
+        - Dates range: adjustable by providing initial and last date or by using the calendar.
+        - Horizontal range: adjustable by providing minimum and maximum values.
+        - Vertical & LOS range: adjustable by providing minimum and maximum values.
+        - Rate range: adjustable by providing minimum and maximum values.
+    6. Buttons: To facilitate manipulation between the traces:
+        - Restore default: Restore the original ranges of dates or values after user manipulations.
+        - Sync ranges: To synchronise the ranges to the same values (by default, the horizontal and vertical ranges of displacement are disjoint).
+    7. Mode bar: A default toolbar of the plotly library located in the top right corner:
+        - Download plot: To save the plot in svg format after user's manipulations.
+        - Edit in Chart Studio: To provide more advanced modifications in the plotly Chart Studio.
+        - Zoom: Work for a selected part of the trace. Double click on the trace to zoom back out.
+        - Pan: Working within a single trace by moving the current view of the trace.
+        - Draw line: Working within a single trace.
+        - Draw circle: Working within a single trace.
+        - Draw rectangle: Working within a single trace.
+        - Erase the active shape: A single-click to activate the shape.
+        - Zoom in: Work simultaneously for all of the traces.
+        - Zoom out: Work simultaneously for all of the traces.
+        - Reset axes: Work simultaneously for all of the traces.
     """
     def __init__(self, data_integration):
         """

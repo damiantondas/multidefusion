@@ -1,21 +1,21 @@
 # Input files structure
 
-A maintenance of the specific structure for all input files is necessary to ensure the successful accomplishment of the integration procedure.
+The library is based on geodetic observations stored in the form of text files. Maintenance of the specific structure for all input files is necessary to ensure the successful completion of the integration procedure. To get the trial dataset for the MultiDEFusion library, see [Trial packages](../trial.md).
 
-## The input file names structure:
+## The structure of names of input file:
 
 1. GNSS: "GNSS.txt" (Mandatory file)
-2. InSAR: (e.g., "DInSAR_Asc_1.txt", "DInSAR_Asc_2.txt", "SBAS_51_main.txt", "PSI_123.txt", ...)
+2. InSAR: (e.g., "DInSAR_Asc_1.txt", "DInSAR_Asc_2.txt", "SBAS_51_main.txt", "PSI_123.txt", etc.).
     - '*Type*'_'*Orbit*'.txt OR
     - '*Type*'\_'*Orbit*'_'*Element*'.txt. The '*Element*' part is not mandatory.
      where:
-      - '*Type*' is a mandatory signature of InSAR calculation method. Allowed values: "DInSAR", "SBAS" or "PSI".
+      - '*Type*' is a mandatory signature of the InSAR calculation method. Allowed values: "DInSAR", "SBAS" or "PSI".
       - '*Orbit*' is a mandatory signature of InSAR orbit. Allowed types: `str` or `int`, e.g., "Asc", "Desc", "51", "123", ...
-      - '*Element*' is a non-mandatory signature of particular pixel or PS point. Allowed types: `str` or `int`, e.g., "1", "10254", "main", ...
+      - '*Element*' is a non-mandatory signature of a particular pixel or PS point. Allowed types: `str` or `int`, e.g., "1", "10254", "main", etc.
       
 ## Restrictions on the input files:
 1) The "GNSS.txt" is a mandatory file.
-2) The InSAR '*Type*' can be realised only by "DInSAR", "SBAS" or "PSI" signature.
+2) The InSAR '*Type*' can be realised only by the "DInSAR", "SBAS" or "PSI" signature.
 3) The number of distinct InSAR '*Orbit*' signatures must be less than or equal to 3.
 4) The number of distinct InSAR '*Element*' signatures within particular '*Orbit*' must be less than or equal to 9.
 5) The number of distinct InSAR '*Element*' signatures within particular '*Type*' must be less than or equal to 10.
@@ -55,8 +55,7 @@ A maintenance of the specific structure for all input files is necessary to ensu
 
      **The *ERROR* column can be replaced by: *COH* (`float`): Coherence factor
       The coherence will be converted to the error value expressed in the metric domain using the theory presented in [Hanssen, 2001](https://repository.tudelft.nl/islandora/object/uuid%3Aa83859d5-c034-427e-b6a9-114c4b008d19) and [Tondaś et al., 2023](https://doi.org/10.1007/s00190-023-01789-z).
-      To calculate the error using coherence factor the wavelength of the Sentinel-1 is applied.**
+      To calculate the error using the coherence factor, the wavelength of the Sentinel-1 is applied.**
 
 [Hanssen, R. (2001).](https://repository.tudelft.nl/islandora/object/uuid%3Aa83859d5-c034-427e-b6a9-114c4b008d19) Radar interferometry: Data interpretation and error analysis.
 [Tondaś, D. et al. (2023).](https://doi.org/10.1007/s00190-023-01789-z) Kalman filter-based integration of GNSS and InSAR observations for local nonlinear strong deformations.
-
