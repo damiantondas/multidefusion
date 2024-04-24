@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://damiantondas.github.io/multidefusion/fusion/">
       
       
-        <link rel="prev" href="../changelog/">
+        <link rel="prev" href="../contributing/">
       
       
         <link rel="next" href="../datainterface/">
@@ -306,6 +306,46 @@
   
   
     <li class="md-nav__item">
+      <a href="../input/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Input files structure
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../trial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Trial packages
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../usage/" class="md-nav__link">
         
   
@@ -326,11 +366,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../contributing/" class="md-nav__link">
+      <a href="../output/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Contributing
+    Output
   </span>
   
 
@@ -351,6 +391,26 @@
   
   <span class="md-ellipsis">
     Changelog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contributing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contributing
   </span>
   
 
@@ -395,10 +455,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" checked>
         
           
-          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -409,8 +469,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_7">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_10">
             <span class="md-nav__icon md-icon"></span>
             API Reference
           </label>
@@ -478,9 +538,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#multidefusion.fusion.multidefusion" class="md-nav__link">
+  <a href="#multidefusion.fusion.run_fusion" class="md-nav__link">
     <span class="md-ellipsis">
-      multidefusion
+      run_fusion
     </span>
   </a>
   
@@ -565,6 +625,26 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../authors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Authors
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -601,9 +681,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#multidefusion.fusion.multidefusion" class="md-nav__link">
+  <a href="#multidefusion.fusion.run_fusion" class="md-nav__link">
     <span class="md-ellipsis">
-      multidefusion
+      run_fusion
     </span>
   </a>
   
@@ -657,72 +737,23 @@
 
 
 
-<h2 id="multidefusion.fusion.multidefusion" class="doc doc-heading">
-          <code class="highlight language-python"><span class="n">multidefusion</span><span class="p">(</span><span class="n">stations</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">noise</span><span class="p">)</span></code>
+<h2 id="multidefusion.fusion.run_fusion" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">run_fusion</span><span class="p">(</span><span class="n">stations</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">noise</span><span class="p">)</span></code>
 
-<a href="#multidefusion.fusion.multidefusion" class="headerlink" title="Permanent link">&para;</a></h2>
+<a href="#multidefusion.fusion.run_fusion" class="headerlink" title="Permanent link">&para;</a></h2>
 
 
   <div class="doc doc-contents ">
   
-      <p>The software provides integration of permanent GNSS data and radar InSAR observations, considering a particular computational methods such as DInSAR, SBAS and PSI.
-The integration procedure can include a single 'station' folder (e.g., stations = ["PI01"]) stored in the 'path', a list of stations (e.g., stations = ["PI01", "PI02", ...]) or ALL of them (stations = "ALL").
-For an particular station folder, it is necessary to save the geodetic data as ASCII files.
-Each file in the station folder will be included in the integration procedure with respect to the chosen 'method' ("forward" or "forward-backward").
-The noise level expressed as acceleration in mm/day^2 should by assigned by user in the emphiriacal way.
-In the library, the zero-mean acceleration model is introduced as the system noise matrix (Teunissen, 2009).</p>
+      <p>The library is based on geodetic observations stored in the form of text files. Maintenance of the specific structure for all input files is necessary to ensure the successful completion of the integration procedure. </p>
+<p>Important remarks:
+1. The integration procedure can include a single station folder (e.g., stations = ["PI01"]) stored in the path, a list of stations (e.g., stations = ["PI01", "PI02", "PI03"]) or ALL of them (stations = "ALL").
+2. For each particular station's folder, it is necessary to store the geodetic data in the ASCII files (see <a href="../input.md">Input</a>).
+3. Every ASCII file stored in the station's folder will be included in the integration procedure with respect to the chosen method ("forward" or "forward-backward").
+4. The noise level expressed as acceleration in mm/day^2^ should by assigned by user in the empirical way.
+5. In the library, the zero-mean acceleration model is introduced as the system noise matrix (Teunissen, 2009).</p>
 <p>Teunissen, P. (2009). Dynamic data processing: Recursive least-squares.</p>
 
-<details class="the-input-file-names-structure" open>
-  <summary>The input file names structure</summary>
-  <p>1) GNSS: "GNSS.txt" (Mandatory file)
-2) InSAR: e.g., "DInSAR_Asc_1.txt", "DInSAR_Asc_2.txt", "SBAS_51_main.txt", "PSI_123.txt", ...
-    - 'Type'<em>'Orbit'.txt OR
-    - 'Type'</em>'Orbit'_'Element'.txt: The 'Element' part is not mandatory.</p>
-</details>      
-
-<details class="restrictions-on-the-input-files" open>
-  <summary>Restrictions on the input files</summary>
-  <p>1) The "GNSS.txt" is a mandatory file.
-2) The InSAR 'Type' can be realised only by "DInSAR", "SBAS" or "PSI" signature.
-3) The number of distinct InSAR 'Orbit' signatures must be less than or equal to 3.
-4) The number of distinct InSAR 'Element' signatures within particular 'Orbit' must be less than or equal to 9.
-5) The number of distinct InSAR 'Element' signatures within particular 'Type' must be less than or equal to 10.</p>
-</details>
-<details class="headers-and-data-columns-structure-in-the-input-files" open>
-  <summary>Headers and data columns structure in the input files</summary>
-  <p>1) GNSS : 'YYYY MM DD X Y Z mX mY mZ'
-where:
-    YYYY (int)  : Year
-    MM   (int)  : Month
-    DD   (int)  : Day
-    X    (float): Geocentric X coordinate [m]
-    Y    (float): Geocentric Y coordinate [m]
-    Z    (float): Geocentric Z coordinate [m]
-    mX   (float): Error of geocentric X coordinate [m]
-    mY   (float): Error of geocentric Y coordinate [m]
-    mZ   (float): Error of geocentric Z coordinate [m]</p>
-<p>2) DInSAR : 'YYYY1 MM1 DD1 YYYY2 MM2 DD2 DSP INC_ANG HEAD_ANG ERROR'
-where:
-    YYYY1    (int)  : Year of primary image
-    YYYY2    (int)  : Year of secondary image
-    MM1      (int)  : Month of primary image
-    MM2      (int)  : Month of secondary image
-    DD1      (int)  : Day of primary image
-    DD2      (int)  : Day of secondary image
-    DSP      (float): LOS displacement [m]
-    INC_ANG  (float): Incidence angle [rad]
-    HEAD_ANG (float): Heading angle [rad]
-    ERROR    (float): Error of LOS displacement [m]</p>
-<p>3) SBAS &amp; PSI : 'YYYY MM DDI NC_ANG HEAD_ANG ERROR'
-    * The 'ERROR' column can be replaced by: 'COH' (float): Coherence faTeunissen (2009ctor
-      Coherence will be converted to the error value expressed in the metric domain using the theory presented in Hansen, 2001 and Tondaś et al., 2023.
-      To calculate the error using coherence factor the wavelength of the Sentinel-1 is applied.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>  Hanssen, R. (2001). Radar interferometry: Data interpretation and error analysis.
-  Tondaś, D. et al. (2023). Kalman filter-based integration of GNSS and InSAR observations for local nonlinear strong deformations.
-</code></pre></div></td></tr></table></div>
-</details>
 
 
   <p><strong>Parameters:</strong></p>
@@ -845,165 +876,69 @@ where:
 
           <details class="quote">
             <summary>Source code in <code>multidefusion\fusion.py</code></summary>
-            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  6</span>
-<span class="normal">  7</span>
-<span class="normal">  8</span>
-<span class="normal">  9</span>
-<span class="normal"> 10</span>
-<span class="normal"> 11</span>
-<span class="normal"> 12</span>
-<span class="normal"> 13</span>
-<span class="normal"> 14</span>
-<span class="normal"> 15</span>
-<span class="normal"> 16</span>
-<span class="normal"> 17</span>
-<span class="normal"> 18</span>
-<span class="normal"> 19</span>
-<span class="normal"> 20</span>
-<span class="normal"> 21</span>
-<span class="normal"> 22</span>
-<span class="normal"> 23</span>
-<span class="normal"> 24</span>
-<span class="normal"> 25</span>
-<span class="normal"> 26</span>
-<span class="normal"> 27</span>
-<span class="normal"> 28</span>
-<span class="normal"> 29</span>
-<span class="normal"> 30</span>
-<span class="normal"> 31</span>
-<span class="normal"> 32</span>
-<span class="normal"> 33</span>
-<span class="normal"> 34</span>
-<span class="normal"> 35</span>
-<span class="normal"> 36</span>
-<span class="normal"> 37</span>
-<span class="normal"> 38</span>
-<span class="normal"> 39</span>
-<span class="normal"> 40</span>
-<span class="normal"> 41</span>
-<span class="normal"> 42</span>
-<span class="normal"> 43</span>
-<span class="normal"> 44</span>
-<span class="normal"> 45</span>
-<span class="normal"> 46</span>
-<span class="normal"> 47</span>
-<span class="normal"> 48</span>
-<span class="normal"> 49</span>
-<span class="normal"> 50</span>
-<span class="normal"> 51</span>
-<span class="normal"> 52</span>
-<span class="normal"> 53</span>
-<span class="normal"> 54</span>
-<span class="normal"> 55</span>
-<span class="normal"> 56</span>
-<span class="normal"> 57</span>
-<span class="normal"> 58</span>
-<span class="normal"> 59</span>
-<span class="normal"> 60</span>
-<span class="normal"> 61</span>
-<span class="normal"> 62</span>
-<span class="normal"> 63</span>
-<span class="normal"> 64</span>
-<span class="normal"> 65</span>
-<span class="normal"> 66</span>
-<span class="normal"> 67</span>
-<span class="normal"> 68</span>
-<span class="normal"> 69</span>
-<span class="normal"> 70</span>
-<span class="normal"> 71</span>
-<span class="normal"> 72</span>
-<span class="normal"> 73</span>
-<span class="normal"> 74</span>
-<span class="normal"> 75</span>
-<span class="normal"> 76</span>
-<span class="normal"> 77</span>
-<span class="normal"> 78</span>
-<span class="normal"> 79</span>
-<span class="normal"> 80</span>
-<span class="normal"> 81</span>
-<span class="normal"> 82</span>
-<span class="normal"> 83</span>
-<span class="normal"> 84</span>
-<span class="normal"> 85</span>
-<span class="normal"> 86</span>
-<span class="normal"> 87</span>
-<span class="normal"> 88</span>
-<span class="normal"> 89</span>
-<span class="normal"> 90</span>
-<span class="normal"> 91</span>
-<span class="normal"> 92</span>
-<span class="normal"> 93</span>
-<span class="normal"> 94</span>
-<span class="normal"> 95</span>
-<span class="normal"> 96</span>
-<span class="normal"> 97</span>
-<span class="normal"> 98</span>
-<span class="normal"> 99</span>
-<span class="normal">100</span>
-<span class="normal">101</span>
-<span class="normal">102</span>
-<span class="normal">103</span>
-<span class="normal">104</span>
-<span class="normal">105</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">multidefusion</span><span class="p">(</span><span class="n">stations</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">noise</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;The software provides integration of permanent GNSS data and radar InSAR observations, considering a particular computational methods such as DInSAR, SBAS and PSI.</span>
-<span class="sd">    The integration procedure can include a single &#39;station&#39; folder (e.g., stations = [&quot;PI01&quot;]) stored in the &#39;path&#39;, a list of stations (e.g., stations = [&quot;PI01&quot;, &quot;PI02&quot;, ...]) or ALL of them (stations = &quot;ALL&quot;).</span>
-<span class="sd">    For an particular station folder, it is necessary to save the geodetic data as ASCII files.</span>
-<span class="sd">    Each file in the station folder will be included in the integration procedure with respect to the chosen &#39;method&#39; (&quot;forward&quot; or &quot;forward-backward&quot;).</span>
-<span class="sd">    The noise level expressed as acceleration in mm/day^2 should by assigned by user in the emphiriacal way.</span>
-<span class="sd">    In the library, the zero-mean acceleration model is introduced as the system noise matrix (Teunissen, 2009).</span>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">run_fusion</span><span class="p">(</span><span class="n">stations</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">noise</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The library is based on geodetic observations stored in the form of text files. Maintenance of the specific structure for all input files is necessary to ensure the successful completion of the integration procedure. </span>
+
+<span class="sd">    Important remarks:</span>
+<span class="sd">    1. The integration procedure can include a single station folder (e.g., stations = [&quot;PI01&quot;]) stored in the path, a list of stations (e.g., stations = [&quot;PI01&quot;, &quot;PI02&quot;, &quot;PI03&quot;]) or ALL of them (stations = &quot;ALL&quot;).</span>
+<span class="sd">    2. For each particular station&#39;s folder, it is necessary to store the geodetic data in the ASCII files (see [Input](../input.md)).</span>
+<span class="sd">    3. Every ASCII file stored in the station&#39;s folder will be included in the integration procedure with respect to the chosen method (&quot;forward&quot; or &quot;forward-backward&quot;).</span>
+<span class="sd">    4. The noise level expressed as acceleration in mm/day^2^ should by assigned by user in the empirical way.</span>
+<span class="sd">    5. In the library, the zero-mean acceleration model is introduced as the system noise matrix (Teunissen, 2009).</span>
 
 <span class="sd">    Teunissen, P. (2009). Dynamic data processing: Recursive least-squares.</span>
-
-<span class="sd">    The input file names structure:</span>
-<span class="sd">        1) GNSS: &quot;GNSS.txt&quot; (Mandatory file)</span>
-<span class="sd">        2) InSAR: e.g., &quot;DInSAR_Asc_1.txt&quot;, &quot;DInSAR_Asc_2.txt&quot;, &quot;SBAS_51_main.txt&quot;, &quot;PSI_123.txt&quot;, ...</span>
-<span class="sd">            - &#39;Type&#39;_&#39;Orbit&#39;.txt OR</span>
-<span class="sd">            - &#39;Type&#39;_&#39;Orbit&#39;_&#39;Element&#39;.txt: The &#39;Element&#39; part is not mandatory.</span>
-<span class="sd">    where:</span>
-<span class="sd">        &#39;Type&#39; is a mandatory signature of InSAR calculation method. Allowed values: &quot;DInSAR&quot;, &quot;SBAS&quot; or &quot;PSI&quot;.</span>
-<span class="sd">        &#39;Obrit&#39; is a mandatory signature of InSAR orbit. Allowed values: str or int, e.g., &quot;Asc&quot;, &quot;Desc&quot;, &quot;51&quot;, &quot;123&quot;, ...</span>
-<span class="sd">        &#39;Element&#39; is a non-madatory signature of particular pixel or PS point. Allowed values: str or int, e.g., &quot;1&quot;, &quot;10254&quot;, &quot;main&quot;, ...</span>
-
-<span class="sd">    Restrictions on the input files:</span>
-<span class="sd">        1) The &quot;GNSS.txt&quot; is a mandatory file.</span>
-<span class="sd">        2) The InSAR &#39;Type&#39; can be realised only by &quot;DInSAR&quot;, &quot;SBAS&quot; or &quot;PSI&quot; signature.</span>
-<span class="sd">        3) The number of distinct InSAR &#39;Orbit&#39; signatures must be less than or equal to 3.</span>
-<span class="sd">        4) The number of distinct InSAR &#39;Element&#39; signatures within particular &#39;Orbit&#39; must be less than or equal to 9.</span>
-<span class="sd">        5) The number of distinct InSAR &#39;Element&#39; signatures within particular &#39;Type&#39; must be less than or equal to 10.</span>
-
-<span class="sd">    Headers and data columns structure in the input files:</span>
-<span class="sd">        1) GNSS : &#39;YYYY MM DD X Y Z mX mY mZ&#39;</span>
-<span class="sd">        where:</span>
-<span class="sd">            YYYY (int)  : Year</span>
-<span class="sd">            MM   (int)  : Month</span>
-<span class="sd">            DD   (int)  : Day</span>
-<span class="sd">            X    (float): Geocentric X coordinate [m]</span>
-<span class="sd">            Y    (float): Geocentric Y coordinate [m]</span>
-<span class="sd">            Z    (float): Geocentric Z coordinate [m]</span>
-<span class="sd">            mX   (float): Error of geocentric X coordinate [m]</span>
-<span class="sd">            mY   (float): Error of geocentric Y coordinate [m]</span>
-<span class="sd">            mZ   (float): Error of geocentric Z coordinate [m]</span>
-
-<span class="sd">        2) DInSAR : &#39;YYYY1 MM1 DD1 YYYY2 MM2 DD2 DSP INC_ANG HEAD_ANG ERROR&#39;</span>
-<span class="sd">        where:</span>
-<span class="sd">            YYYY1    (int)  : Year of primary image</span>
-<span class="sd">            YYYY2    (int)  : Year of secondary image</span>
-<span class="sd">            MM1      (int)  : Month of primary image</span>
-<span class="sd">            MM2      (int)  : Month of secondary image</span>
-<span class="sd">            DD1      (int)  : Day of primary image</span>
-<span class="sd">            DD2      (int)  : Day of secondary image</span>
-<span class="sd">            DSP      (float): LOS displacement [m]</span>
-<span class="sd">            INC_ANG  (float): Incidence angle [rad]</span>
-<span class="sd">            HEAD_ANG (float): Heading angle [rad]</span>
-<span class="sd">            ERROR    (float): Error of LOS displacement [m]</span>
-
-<span class="sd">        3) SBAS &amp; PSI : &#39;YYYY MM DDI NC_ANG HEAD_ANG ERROR&#39;</span>
-<span class="sd">            * The &#39;ERROR&#39; column can be replaced by: &#39;COH&#39; (float): Coherence faTeunissen (2009ctor</span>
-<span class="sd">              Coherence will be converted to the error value expressed in the metric domain using the theory presented in Hansen, 2001 and Tondaś et al., 2023.</span>
-<span class="sd">              To calculate the error using coherence factor the wavelength of the Sentinel-1 is applied.</span>
-
-<span class="sd">              Hanssen, R. (2001). Radar interferometry: Data interpretation and error analysis.</span>
-<span class="sd">              Tondaś, D. et al. (2023). Kalman filter-based integration of GNSS and InSAR observations for local nonlinear strong deformations. </span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        stations (list or str): List of station names or &quot;ALL&quot; to process all stations found in the specified path.</span>

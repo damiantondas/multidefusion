@@ -306,6 +306,46 @@
   
   
     <li class="md-nav__item">
+      <a href="../input/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Input files structure
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../trial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Trial packages
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../usage/" class="md-nav__link">
         
   
@@ -326,11 +366,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../contributing/" class="md-nav__link">
+      <a href="../output/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Contributing
+    Output
   </span>
   
 
@@ -351,6 +391,26 @@
   
   <span class="md-ellipsis">
     Changelog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contributing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Contributing
   </span>
   
 
@@ -395,10 +455,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" checked>
         
           
-          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -409,8 +469,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_7">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_10">
             <span class="md-nav__icon md-icon"></span>
             API Reference
           </label>
@@ -625,6 +685,26 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../authors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Authors
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -786,22 +866,41 @@
 
   
       <p>Class for creating displacement plots.</p>
+<p>The final plot is created involving the Plotly library and Dash framework. The graphic representation of the results is automatically launched on the localhost server on port 8050.</p>
+<p>The most important plot features:</p>
+<ol>
+<li>Visualisation: The default port for displaying results on localhost is 8050. For more than one station, the outputs will be displayed simultaneously on consecutive ports.</li>
+<li>Legend: Work for all of the traces and provide a general overview of the results by activating or deactivating groups of data using the legend entities.</li>
+<li>Hover: Working within a single trace and providing a detailed overview of the results using the cursor.</li>
+<li>Table: To provide the most relevant information about the integration procedure.</li>
+<li>Customisation: To provide individual ranges for dates or values:<ul>
+<li>Dates range: adjustable by providing initial and last date or by using the calendar.</li>
+<li>Horizontal range: adjustable by providing minimum and maximum values.</li>
+<li>Vertical &amp; LOS range: adjustable by providing minimum and maximum values.</li>
+<li>Rate range: adjustable by providing minimum and maximum values.</li>
+</ul>
+</li>
+<li>Buttons: To facilitate manipulation between the traces:<ul>
+<li>Restore default: Restore the original ranges of dates or values after user manipulations.</li>
+<li>Sync ranges: To synchronise the ranges to the same values (by default, the horizontal and vertical ranges of displacement are disjoint).</li>
+</ul>
+</li>
+<li>Mode bar: A default toolbar of the plotly library located in the top right corner:<ul>
+<li>Download plot: To save the plot in svg format after user's manipulations.</li>
+<li>Edit in Chart Studio: To provide more advanced modifications in the plotly Chart Studio.</li>
+<li>Zoom: Work for a selected part of the trace. Double click on the trace to zoom back out.</li>
+<li>Pan: Working within a single trace by moving the current view of the trace.</li>
+<li>Draw line: Working within a single trace.</li>
+<li>Draw circle: Working within a single trace.</li>
+<li>Draw rectangle: Working within a single trace.</li>
+<li>Erase the active shape: A single-click to activate the shape.</li>
+<li>Zoom in: Work simultaneously for all of the traces.</li>
+<li>Zoom out: Work simultaneously for all of the traces.</li>
+<li>Reset axes: Work simultaneously for all of the traces.</li>
+</ul>
+</li>
+</ol>
 
-<details class="plot-features" open>
-  <summary>Plot features</summary>
-  <p>Mode bar: A default toolbar of the plotly library located in the top right corner:
-    a) Download plot: To save the plot in .svg format after user's manipulations.
-    b) Edit in Chart Studio: To provide more advanced modifications in the plotly Chart Studio.
-    c) Zoom: Working for a selected part of the trace. Double click on the trace to zoom back out.
-    d) Pan: Working within a single trace by moving the current view of the trace.
-    e) Draw line: Working within a single trace.
-    f) Draw circle: Working within a single trace.
-    g) Draw rectangle: Working within a single trace.
-    h) Erase the active shape: A single-click to acitivate the shape.
-    i) Zoom in: Working simultaneously for all of the traces.
-    j) Zoom out: Working simultaneously for all of the traces.
-    k) Reset axces: Working simultaneously for all of the traces.</p>
-</details>
             <details class="quote">
               <summary>Source code in <code>multidefusion\results.py</code></summary>
               <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">   9</span>
@@ -1798,34 +1897,40 @@
 <span class="normal">1000</span>
 <span class="normal">1001</span>
 <span class="normal">1002</span>
-<span class="normal">1003</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">Figures</span><span class="p">:</span>
+<span class="normal">1003</span>
+<span class="normal">1004</span>
+<span class="normal">1005</span>
+<span class="normal">1006</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">Figures</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Class for creating displacement plots.</span>
 
-<span class="sd">    Plot features:</span>
-<span class="sd">        Visualisation: The default port for displaying results on localhost is 8050. For more than one station, the outputs will be displayed simultaneously on consecutive ports.</span>
-<span class="sd">        Legend: Working for all of the traces and providing a general overview of the results by activating or deactivating groups of data using the legend entities.</span>
-<span class="sd">        Hover: Working within a single trace and providing a detailed overview of the results using the cursor.</span>
-<span class="sd">        Table: To provide the most relevant information about integration procedure.</span>
-<span class="sd">        Customisation: To provide individual ranges for dates or values:</span>
-<span class="sd">            a) Dates range - adjustable by providing initial and last date or by using the calendar.</span>
-<span class="sd">            b) Horizonltal range - adjustable by providing minimum and maximum values.</span>
-<span class="sd">            c) Vertical &amp; LOS range - adjustable by providing minimum and maximum values.</span>
-<span class="sd">            d) Rate range - adjustable by providing minimum and maximum values.</span>
-<span class="sd">        Buttons: To facilitate manipulation between the traces:</span>
-<span class="sd">            a) Restore default: To restore the original ranges of dates or values after user&#39;s manipulations.</span>
-<span class="sd">            b) Sync ranges: To synchronise the ranges to the same values (by default the horizontal and vertical ranges of displacement are disjoint).</span>
-<span class="sd">        Mode bar: A default toolbar of the plotly library located in the top right corner:</span>
-<span class="sd">            a) Download plot: To save the plot in .svg format after user&#39;s manipulations.</span>
-<span class="sd">            b) Edit in Chart Studio: To provide more advanced modifications in the plotly Chart Studio.</span>
-<span class="sd">            c) Zoom: Working for a selected part of the trace. Double click on the trace to zoom back out.</span>
-<span class="sd">            d) Pan: Working within a single trace by moving the current view of the trace.</span>
-<span class="sd">            e) Draw line: Working within a single trace.</span>
-<span class="sd">            f) Draw circle: Working within a single trace.</span>
-<span class="sd">            g) Draw rectangle: Working within a single trace.</span>
-<span class="sd">            h) Erase the active shape: A single-click to acitivate the shape.</span>
-<span class="sd">            i) Zoom in: Working simultaneously for all of the traces.</span>
-<span class="sd">            j) Zoom out: Working simultaneously for all of the traces.</span>
-<span class="sd">            k) Reset axces: Working simultaneously for all of the traces.</span>
+<span class="sd">    The final plot is created involving the Plotly library and Dash framework. The graphic representation of the results is automatically launched on the localhost server on port 8050.</span>
+
+<span class="sd">    The most important plot features:</span>
+
+<span class="sd">    1. Visualisation: The default port for displaying results on localhost is 8050. For more than one station, the outputs will be displayed simultaneously on consecutive ports.</span>
+<span class="sd">    2. Legend: Work for all of the traces and provide a general overview of the results by activating or deactivating groups of data using the legend entities.</span>
+<span class="sd">    3. Hover: Working within a single trace and providing a detailed overview of the results using the cursor.</span>
+<span class="sd">    4. Table: To provide the most relevant information about the integration procedure.</span>
+<span class="sd">    5. Customisation: To provide individual ranges for dates or values:</span>
+<span class="sd">        - Dates range: adjustable by providing initial and last date or by using the calendar.</span>
+<span class="sd">        - Horizontal range: adjustable by providing minimum and maximum values.</span>
+<span class="sd">        - Vertical &amp; LOS range: adjustable by providing minimum and maximum values.</span>
+<span class="sd">        - Rate range: adjustable by providing minimum and maximum values.</span>
+<span class="sd">    6. Buttons: To facilitate manipulation between the traces:</span>
+<span class="sd">        - Restore default: Restore the original ranges of dates or values after user manipulations.</span>
+<span class="sd">        - Sync ranges: To synchronise the ranges to the same values (by default, the horizontal and vertical ranges of displacement are disjoint).</span>
+<span class="sd">    7. Mode bar: A default toolbar of the plotly library located in the top right corner:</span>
+<span class="sd">        - Download plot: To save the plot in svg format after user&#39;s manipulations.</span>
+<span class="sd">        - Edit in Chart Studio: To provide more advanced modifications in the plotly Chart Studio.</span>
+<span class="sd">        - Zoom: Work for a selected part of the trace. Double click on the trace to zoom back out.</span>
+<span class="sd">        - Pan: Working within a single trace by moving the current view of the trace.</span>
+<span class="sd">        - Draw line: Working within a single trace.</span>
+<span class="sd">        - Draw circle: Working within a single trace.</span>
+<span class="sd">        - Draw rectangle: Working within a single trace.</span>
+<span class="sd">        - Erase the active shape: A single-click to activate the shape.</span>
+<span class="sd">        - Zoom in: Work simultaneously for all of the traces.</span>
+<span class="sd">        - Zoom out: Work simultaneously for all of the traces.</span>
+<span class="sd">        - Reset axes: Work simultaneously for all of the traces.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_integration</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -2855,10 +2960,7 @@
 
           <details class="quote">
             <summary>Source code in <code>multidefusion\results.py</code></summary>
-            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span>
-<span class="normal">41</span>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">41</span>
 <span class="normal">42</span>
 <span class="normal">43</span>
 <span class="normal">44</span>
@@ -2875,7 +2977,10 @@
 <span class="normal">55</span>
 <span class="normal">56</span>
 <span class="normal">57</span>
-<span class="normal">58</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_integration</span><span class="p">):</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_integration</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Initialize Figures object.</span>
 
@@ -3027,10 +3132,7 @@
 
           <details class="quote">
             <summary>Source code in <code>multidefusion\results.py</code></summary>
-            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">105</span>
-<span class="normal">106</span>
-<span class="normal">107</span>
-<span class="normal">108</span>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">108</span>
 <span class="normal">109</span>
 <span class="normal">110</span>
 <span class="normal">111</span>
@@ -3044,7 +3146,10 @@
 <span class="normal">119</span>
 <span class="normal">120</span>
 <span class="normal">121</span>
-<span class="normal">122</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@staticmethod</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@staticmethod</span>
 <span class="k">def</span> <span class="nf">add_vline</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">timestamp_min_value</span><span class="p">,</span> <span class="n">timestamp_max_value</span><span class="p">,</span> <span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">):</span>    
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Add Thicker line for each subplot to indicate the beginning of a year</span>
@@ -3085,10 +3190,7 @@
 
           <details class="quote">
             <summary>Source code in <code>multidefusion\results.py</code></summary>
-            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 124</span>
-<span class="normal"> 125</span>
-<span class="normal"> 126</span>
-<span class="normal"> 127</span>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 127</span>
 <span class="normal"> 128</span>
 <span class="normal"> 129</span>
 <span class="normal"> 130</span>
@@ -3964,7 +4066,10 @@
 <span class="normal">1000</span>
 <span class="normal">1001</span>
 <span class="normal">1002</span>
-<span class="normal">1003</span></pre></div></td><td class="code"><div><pre><span></span><code>    <span class="k">def</span> <span class="nf">create_displacement_plot</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="normal">1003</span>
+<span class="normal">1004</span>
+<span class="normal">1005</span>
+<span class="normal">1006</span></pre></div></td><td class="code"><div><pre><span></span><code>    <span class="k">def</span> <span class="nf">create_displacement_plot</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create displacement plot using Plotly and Dash.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -4923,10 +5028,7 @@
 
           <details class="quote">
             <summary>Source code in <code>multidefusion\results.py</code></summary>
-            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 92</span>
-<span class="normal"> 93</span>
-<span class="normal"> 94</span>
-<span class="normal"> 95</span>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 95</span>
 <span class="normal"> 96</span>
 <span class="normal"> 97</span>
 <span class="normal"> 98</span>
@@ -4934,7 +5036,10 @@
 <span class="normal">100</span>
 <span class="normal">101</span>
 <span class="normal">102</span>
-<span class="normal">103</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@staticmethod</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@staticmethod</span>
 <span class="k">def</span> <span class="nf">find_max_total</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Find the maximum value (positive or negative) from each column from a set of dataframe.</span>
@@ -5025,10 +5130,7 @@
 
           <details class="quote">
             <summary>Source code in <code>multidefusion\results.py</code></summary>
-            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">76</span>
-<span class="normal">77</span>
-<span class="normal">78</span>
-<span class="normal">79</span>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">79</span>
 <span class="normal">80</span>
 <span class="normal">81</span>
 <span class="normal">82</span>
@@ -5039,7 +5141,10 @@
 <span class="normal">87</span>
 <span class="normal">88</span>
 <span class="normal">89</span>
-<span class="normal">90</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@staticmethod</span>
+<span class="normal">90</span>
+<span class="normal">91</span>
+<span class="normal">92</span>
+<span class="normal">93</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@staticmethod</span>
 <span class="k">def</span> <span class="nf">find_max_value</span><span class="p">(</span><span class="o">*</span><span class="n">lists</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Find the maximum value from a set of lists.</span>
@@ -5133,10 +5238,7 @@
 
           <details class="quote">
             <summary>Source code in <code>multidefusion\results.py</code></summary>
-            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">60</span>
-<span class="normal">61</span>
-<span class="normal">62</span>
-<span class="normal">63</span>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">63</span>
 <span class="normal">64</span>
 <span class="normal">65</span>
 <span class="normal">66</span>
@@ -5147,7 +5249,10 @@
 <span class="normal">71</span>
 <span class="normal">72</span>
 <span class="normal">73</span>
-<span class="normal">74</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@staticmethod</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@staticmethod</span>
 <span class="k">def</span> <span class="nf">find_min_value</span><span class="p">(</span><span class="o">*</span><span class="n">lists</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Find the minimum value from a set of lists.</span>

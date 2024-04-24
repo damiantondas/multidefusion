@@ -1,8 +1,8 @@
-# Installation
+# MultiDEFusion Installation
 
 ## Stable release
 
-To install multidefusion, run this command in your terminal:
+To install MultiDEFusion library, execute the following command in a terminal:
 
 ```
 pip install multidefusion
