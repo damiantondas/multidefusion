@@ -84,6 +84,6 @@ nav:
     - API Reference:
           - fusion module: fusion.md
           - datainterface module: datainterface.md
-          - results module: results.md
           - integration module: integration.md
+          - results module: results.md
     - Authors: authors.md
