@@ -4,18 +4,16 @@ The software provides integration of permanent **GNSS** data and radar **InSAR**
 
 ## Import the library
 
-MultiDEFusion software works in the Python environment (see [Installation](../installation/)). To run the integration procedure at the beginning import `run_fusion` procedure:
-```
-from multidefusion import run_fusion
-```
+MultiDEFusion software works in the Python environment (see [Installation](../installation/)). To run the integration procedure at the beginning import **run_fusion** procedure:
+
+`from multidefusion.fusion import run_fusion`
+
 
 ## Description of initial parameters
 
 In the following, to `run_fusion`, the initial arguments are required to be defined by the user.
 
-```
-integration = run_fusion(stations, path, method, noise)
-```
+`integration = run_fusion(stations, path, method, noise)`
 
 The description of initial parameters:
 
@@ -40,17 +38,17 @@ The description of initial parameters:
 
 ## Examples
 
-1. An example script to run fusion for `ALL` stations in `/path/to/multidefusion_trial/` folder using `forward-backward` method with `0.03` mm/day<sup>2</sup> noise level. To get trial MultiDEFusion repository see [Trial](../trial/) section:  
+1. An example script to run fusion for `ALL` stations in `/path/to/multidefusion_trial/` folder using `forward-backward` method with `0.03` mm/day<sup>2</sup> noise level. To get trial MultiDEFusion repository, see [Trial](../trial/) section:  
 
     ```
-    from multidefusion import run_fusion
+    from multidefusion.fusion import run_fusion
 
     integration = run_fusion(stations="ALL", path="/path/to/multidefusion_trial/", method="forward-backward", noise=0.03)
     ```
 2. An example script to run fusion for `PI01` station in `C:\path\to\folder\` folder using `forward` method with `0.05` mm/day<sup>2</sup> noise level.
 
     ```
-    from multidefusion import run_fusion
+    from multidefusion.fusion import run_fusion
 
     integration = run_fusion(stations=["PI01"], path="C:\path\to\folder\", method="forward", noise=0.05)
     ```
@@ -58,7 +56,7 @@ The description of initial parameters:
 3. An example script to run fusion for `PI01` and `PI05` stations in `C:\path\to\folder\` folder using `forward-backward` method with `0.045` mm/day<sup>2</sup> noise level.
 
     ```
-    from multidefusion import run_fusion
+    from multidefusion.fusion import run_fusion
 
     integration = run_fusion(stations=["PI01", "PI05"], path="C:\path\to\folder\", method="forward-backward", noise=0.045)
     ```

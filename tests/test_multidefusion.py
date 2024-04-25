@@ -5,7 +5,7 @@
 
 import unittest
 
-from multidefusion import run_fusion
+from multidefusion import fusion
 
 
 class TestMultidefusion(unittest.TestCase):
