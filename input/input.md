@@ -53,9 +53,17 @@ The library is based on geodetic observations stored in the form of text files. 
 
 3. SBAS & PSI: `YYYY MM DD DSP INC_ANG HEAD_ANG ERROR`
 
-     **The *ERROR* column can be replaced by: *COH* (`float`): Coherence factor
-      The coherence will be converted to the error value expressed in the metric domain using the theory presented in [Hanssen, 2001](https://repository.tudelft.nl/islandora/object/uuid%3Aa83859d5-c034-427e-b6a9-114c4b008d19) and [Tondaś et al., 2023](https://doi.org/10.1007/s00190-023-01789-z).
-      To calculate the error using the coherence factor, the wavelength of the Sentinel-1 is applied.**
+    | Signature | Type    | Parameter  |
+    | :---      | :----:  | :---       |
+    | *YYYY*    | `int`   | Year       |
+    | *MM*      | `int`   | Month      |
+    | *DD*      | `int`   | Day        |
+    | *DSP*     | `float` | LOS displacement [m]     |
+    | *INC_ANG* | `float` | Incidence angle [rad]    |
+    | *HEAD_ANG*| `float` | Heading angle [rad]      |
+    | *ERROR*   | `float` | Error of LOS displacement [m] |
+
+     **For all InSAR methods, the *ERROR* column can be replaced by: *COH* (`float`): *Coherence factor*. The coherence will be converted to the error value expressed in the metric domain using the theory presented in [Hanssen, 2001](https://repository.tudelft.nl/islandora/object/uuid%3Aa83859d5-c034-427e-b6a9-114c4b008d19) and [Tondaś et al., 2023](https://doi.org/10.1007/s00190-023-01789-z). To calculate the error using the coherence factor, the wavelength of the Sentinel-1 is applied.**
 
 [Hanssen, R. (2001).](https://repository.tudelft.nl/islandora/object/uuid%3Aa83859d5-c034-427e-b6a9-114c4b008d19) Radar interferometry: Data interpretation and error analysis.<br>
 [Tondaś, D. et al. (2023).](https://doi.org/10.1007/s00190-023-01789-z) Kalman filter-based integration of GNSS and InSAR observations for local nonlinear strong deformations.
