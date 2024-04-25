@@ -1,3 +1,5 @@
 # Changelog
 
-## v0.0.15 - 24.04.2024
+## v0.1 - 24.04.2024
+
+This is first version of the MultiDEFusion library.

@@ -25,7 +25,7 @@ The dataset can be downloaded from GitHub or Zenodo platform.
 1. To run the integration procedure in the Python environment, the initial parameters are required to be defined by the user. In the following, you can find an example script to run fusion for `ALL` stations in `multidefusion_trial` folder using `forward-backward` method with `0.03` mm/day<sup>2</sup> noise level: 
 
     ```
-    from multidefusion import run_fusion
+    from multidefusion.fusion import run_fusion
 
     integration = run_fusion(stations="ALL", path="/path/to/multidefusion_trial/", method="forward-backward", noise=0.03)
     ```
