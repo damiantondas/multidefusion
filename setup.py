@@ -37,6 +37,7 @@ setup(
         'Programming Language :: Python :: 3.9',
         'Programming Language :: Python :: 3.10',
         'Programming Language :: Python :: 3.11',
+        'Programming Language :: Python :: 3.12',
     ],
     description="Perform data fusion and analysis of the ground deformations for multiple stations.",
     install_requires=install_requires,
@@ -52,6 +53,6 @@ setup(
     test_suite='tests',
     tests_require=test_requirements,
     url='https://github.com/damiantondas/multidefusion',
-    version='0.0.18',
+    version='0.0.19',
     zip_safe=False,
 )

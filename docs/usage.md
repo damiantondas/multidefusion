@@ -45,20 +45,20 @@ The description of initial parameters:
 
     integration = run_fusion(stations="ALL", path="/path/to/multidefusion_trial/", method="forward-backward", noise=0.03)
     ```
-2. An example script to run fusion for `PI01` station in `C:\path\to\folder\` folder using `forward` method with `0.05` mm/day<sup>2</sup> noise level.
+2. An example script to run fusion for `PI01` station in `C:/path/to/folder/` folder using `forward` method with `0.05` mm/day<sup>2</sup> noise level.
 
     ```
     from multidefusion.fusion import run_fusion
 
-    integration = run_fusion(stations=["PI01"], path="C:\path\to\folder\", method="forward", noise=0.05)
+    integration = run_fusion(stations=["PI01"], path="C:/path/to/folder/", method="forward", noise=0.05)
     ```
 
-3. An example script to run fusion for `PI01` and `PI05` stations in `C:\path\to\folder\` folder using `forward-backward` method with `0.045` mm/day<sup>2</sup> noise level.
+3. An example script to run fusion for `PI01` and `PI05` stations in `C:/path/to/folder/` folder using `forward-backward` method with `0.045` mm/day<sup>2</sup> noise level.
 
     ```
     from multidefusion.fusion import run_fusion
 
-    integration = run_fusion(stations=["PI01", "PI05"], path="C:\path\to\folder\", method="forward-backward", noise=0.045)
+    integration = run_fusion(stations=["PI01", "PI05"], path="C:/path/to/folder/", method="forward-backward", noise=0.045)
     ```
 
 [Teunissen, P. (2009)](http://hdl.handle.net/20.500.11937/9039). Dynamic data processing: Recursive least-squares.
