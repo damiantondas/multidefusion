@@ -26,7 +26,7 @@
     
     
       
-        <title>fusion module - multidefusion</title>
+        <title>fusion module - MultiDEFusion</title>
       
     
     
@@ -98,7 +98,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="multidefusion" class="md-header__button md-logo" aria-label="multidefusion" data-md-component="logo">
+    <a href=".." title="MultiDEFusion" class="md-header__button md-logo" aria-label="MultiDEFusion" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -112,7 +112,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            multidefusion
+            MultiDEFusion
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -236,13 +236,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="multidefusion" class="md-nav__button md-logo" aria-label="multidefusion" data-md-component="logo">
+    <a href=".." title="MultiDEFusion" class="md-nav__button md-logo" aria-label="MultiDEFusion" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
 
     </a>
-    multidefusion
+    MultiDEFusion
   </label>
   
     <div class="md-nav__source">
@@ -326,11 +326,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../trial/" class="md-nav__link">
+      <a href="../usage/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Trial packages
+    Usage
   </span>
   
 
@@ -346,11 +346,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../usage/" class="md-nav__link">
+      <a href="../trial/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Usage
+    Trial packages
   </span>
   
 
@@ -952,16 +952,16 @@
 <span class="sd">    Returns:</span>
 <span class="sd">        integration_results (dict): DataIntegration objects</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">port</span> <span class="o">=</span> <span class="mi">8050</span>
+    <span class="n">port</span> <span class="o">=</span> <span class="mi">8049</span>
     <span class="n">integration_results</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="k">if</span> <span class="n">stations</span> <span class="o">==</span> <span class="s2">&quot;ALL&quot;</span><span class="p">:</span>
         <span class="n">stations</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">scandir</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">is_dir</span><span class="p">()]</span>
     <span class="k">for</span> <span class="n">station</span> <span class="ow">in</span> <span class="n">stations</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Processing data for station: </span><span class="si">{</span><span class="n">station</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Kalman </span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s2"> integration procedure in progress...&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Fusion started for station: </span><span class="si">{</span><span class="n">station</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Kalman </span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s2"> integration procedure in progress.&quot;</span><span class="p">)</span>
+        <span class="n">port</span> <span class="o">+=</span><span class="mi">1</span>
         <span class="n">integration</span> <span class="o">=</span> <span class="n">DataIntegration</span><span class="p">(</span><span class="n">station_name</span><span class="o">=</span><span class="n">station</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">path</span><span class="p">,</span> <span class="n">noise</span><span class="o">=</span><span class="n">noise</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="n">port</span><span class="p">)</span>
         <span class="n">integration</span><span class="o">.</span><span class="n">connect_data</span><span class="p">()</span>
-        <span class="n">port</span> <span class="o">+=</span><span class="mi">1</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;forward&quot;</span><span class="p">:</span>
                 <span class="n">integration</span><span class="o">.</span><span class="n">kalman_forward</span><span class="p">()</span>

@@ -26,7 +26,7 @@
     
     
       
-        <title>results module - multidefusion</title>
+        <title>results module - MultiDEFusion</title>
       
     
     
@@ -98,7 +98,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="multidefusion" class="md-header__button md-logo" aria-label="multidefusion" data-md-component="logo">
+    <a href=".." title="MultiDEFusion" class="md-header__button md-logo" aria-label="MultiDEFusion" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -112,7 +112,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            multidefusion
+            MultiDEFusion
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -236,13 +236,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="multidefusion" class="md-nav__button md-logo" aria-label="multidefusion" data-md-component="logo">
+    <a href=".." title="MultiDEFusion" class="md-nav__button md-logo" aria-label="MultiDEFusion" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
 
     </a>
-    multidefusion
+    MultiDEFusion
   </label>
   
     <div class="md-nav__source">
@@ -326,11 +326,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../trial/" class="md-nav__link">
+      <a href="../usage/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Trial packages
+    Usage
   </span>
   
 
@@ -346,11 +346,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../usage/" class="md-nav__link">
+      <a href="../trial/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Usage
+    Trial packages
   </span>
   
 
@@ -1898,9 +1898,7 @@
 <span class="normal">1001</span>
 <span class="normal">1002</span>
 <span class="normal">1003</span>
-<span class="normal">1004</span>
-<span class="normal">1005</span>
-<span class="normal">1006</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">Figures</span><span class="p">:</span>
+<span class="normal">1004</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">Figures</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Class for creating displacement plots.</span>
 
 <span class="sd">    The final plot is created involving the Plotly library and Dash framework. The graphic representation of the results is automatically launched on the localhost server on port 8050.</span>
@@ -2063,17 +2061,34 @@
         <span class="n">cols</span> <span class="o">=</span> <span class="mi">3</span>
         <span class="n">specs</span> <span class="o">=</span> <span class="p">[[{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;xy&quot;</span><span class="p">}]</span> <span class="o">*</span> <span class="n">cols</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">rows</span><span class="o">-</span><span class="mi">1</span><span class="p">)]</span>
 
+        <span class="c1"># COLORS BY DATA TYPE</span>
+        <span class="n">data_colors</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;forward&quot;</span><span class="p">:</span> <span class="s2">&quot;rgb(25, 255, 25)&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;backward&quot;</span><span class="p">:</span> <span class="s2">&quot;rgb(255, 0, 0)&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;GNSS&quot;</span><span class="p">:</span> <span class="s2">&quot;rgb(0, 190, 255)&quot;</span><span class="p">,</span>
+
+                       <span class="s2">&quot;DInSAR&quot;</span><span class="p">:[</span><span class="s2">&quot;#0000ff&quot;</span><span class="p">,</span> <span class="s1">&#39;#1322FB&#39;</span><span class="p">,</span> <span class="s1">&#39;#2541F8&#39;</span><span class="p">,</span> <span class="s1">&#39;#375DF6&#39;</span><span class="p">,</span> <span class="s1">&#39;#4976F3&#39;</span><span class="p">,</span> <span class="s1">&#39;#5A8CF2&#39;</span><span class="p">,</span> <span class="s1">&#39;#6AA0F0&#39;</span><span class="p">,</span> <span class="s1">&#39;#7BB1EF&#39;</span><span class="p">,</span> <span class="s1">&#39;#8AC0EF&#39;</span><span class="p">,</span> <span class="s1">&#39;#9ACDEF&#39;</span><span class="p">],</span>
+                       <span class="s2">&quot;PSI&quot;</span><span class="p">:</span>   <span class="p">[</span><span class="s2">&quot;#771e87&quot;</span><span class="p">,</span> <span class="s1">&#39;#782390&#39;</span><span class="p">,</span> <span class="s1">&#39;#792999&#39;</span><span class="p">,</span> <span class="s1">&#39;#7A2FA2&#39;</span><span class="p">,</span> <span class="s1">&#39;#7A36AB&#39;</span><span class="p">,</span> <span class="s1">&#39;#7A3DB3&#39;</span><span class="p">,</span> <span class="s1">&#39;#7A45BA&#39;</span><span class="p">,</span> <span class="s1">&#39;#7B54BB&#39;</span><span class="p">,</span> <span class="s1">&#39;#7E62BC&#39;</span><span class="p">,</span> <span class="s1">&#39;#8370BD&#39;</span><span class="p">],</span>
+                       <span class="s2">&quot;SBAS&quot;</span><span class="p">:</span>  <span class="p">[</span><span class="s2">&quot;#7f822f&quot;</span><span class="p">,</span> <span class="s1">&#39;#8C8936&#39;</span><span class="p">,</span> <span class="s1">&#39;#938B3E&#39;</span><span class="p">,</span> <span class="s1">&#39;#9B8D46&#39;</span><span class="p">,</span> <span class="s1">&#39;#A28E4E&#39;</span><span class="p">,</span> <span class="s1">&#39;#A89057&#39;</span><span class="p">,</span> <span class="s1">&#39;#AA9064&#39;</span><span class="p">,</span> <span class="s1">&#39;#AC9372&#39;</span><span class="p">,</span> <span class="s1">&#39;#AE967E&#39;</span><span class="p">,</span> <span class="s1">&#39;#B19C8B&#39;</span><span class="p">],</span>
+                       <span class="p">}</span>
+
+        <span class="n">disp_cols</span>  <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;N&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="s2">&quot;U&quot;</span><span class="p">]</span>
+        <span class="n">rate_cols</span>  <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;vN&quot;</span><span class="p">,</span> <span class="s2">&quot;vE&quot;</span><span class="p">,</span> <span class="s2">&quot;vU&quot;</span><span class="p">]</span>
+        <span class="n">disp_units</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;U&quot;</span><span class="p">:</span> <span class="s2">&quot;ver&quot;</span><span class="p">,</span> <span class="s2">&quot;N&quot;</span><span class="p">:</span> <span class="s2">&quot;hor&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">:</span> <span class="s2">&quot;hor&quot;</span><span class="p">}</span>
+
+        <span class="c1"># CREATE STORAGE FOR STORE MIN AND MAX FOR SPECIFIC DATA TYPE VALUES</span>
+        <span class="n">max_disp</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;ver&quot;</span><span class="p">:</span> <span class="p">[],</span> <span class="s2">&quot;hor&quot;</span><span class="p">:</span> <span class="p">[]}</span>
+        <span class="n">min_disp</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;ver&quot;</span><span class="p">:</span> <span class="p">[],</span> <span class="s2">&quot;hor&quot;</span><span class="p">:</span> <span class="p">[]}</span>
+        <span class="n">max_rate</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">min_rate</span> <span class="o">=</span> <span class="p">[]</span>
+
         <span class="n">name_forward</span> <span class="o">=</span> <span class="s2">&quot;Forward&quot;</span>
         <span class="n">name_backward</span> <span class="o">=</span> <span class="s2">&quot;Backward&quot;</span>
 
-        <span class="n">GNSS_names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;North&quot;</span><span class="p">,</span> <span class="s2">&quot;East&quot;</span><span class="p">,</span> <span class="s2">&quot;Up&quot;</span><span class="p">]</span>
-        <span class="n">disp_names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;N&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="s2">&quot;U&quot;</span><span class="p">]</span>
-        <span class="n">disp_units</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;U&quot;</span><span class="p">:</span> <span class="s2">&quot;ver&quot;</span><span class="p">,</span> <span class="s2">&quot;N&quot;</span><span class="p">:</span> <span class="s2">&quot;hor&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">:</span> <span class="s2">&quot;hor&quot;</span><span class="p">}</span>
-
-        <span class="n">subplot_titles</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;&lt;b&gt;</span><span class="si">{</span><span class="n">GNSS_names</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&lt;/b&gt;&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;&lt;b&gt;</span><span class="si">{</span><span class="n">GNSS_names</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">&lt;/b&gt;&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;&lt;b&gt;</span><span class="si">{</span><span class="n">GNSS_names</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="si">}</span><span class="s2">&lt;/b&gt;&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">cols</span>
+        <span class="n">subplot_titles</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;&lt;b&gt;North&lt;/b&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;b&gt;East&lt;/b&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;b&gt;Up&lt;/b&gt;&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">cols</span>
 
         <span class="n">orbit_titles</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;&lt;b&gt;Orbit &quot;</span> <span class="o">+</span> <span class="n">orbit</span> <span class="o">+</span> <span class="s2">&quot;&lt;/b&gt;&quot;</span> <span class="k">for</span> <span class="n">orbit</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">orbits</span><span class="p">]</span>
         <span class="n">empty_titles</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="mi">3</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">number_of_orbits</span><span class="p">)</span>
+
         <span class="c1"># CREATE GRID FOR SUBPLOTS AND TITLES</span>
         <span class="k">if</span> <span class="s2">&quot;PSI&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sar_data_types</span> <span class="ow">or</span> <span class="s2">&quot;SBAS&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sar_data_types</span><span class="p">:</span>
             <span class="n">rows</span> <span class="o">+=</span> <span class="mi">1</span>
@@ -2101,7 +2116,7 @@
 
         <span class="c1"># GET TIMESTAMPS FOR GNSS, FORWARD, BACKWARD IF EXIST</span>
         <span class="n">gnss_timestamp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_integration</span><span class="o">.</span><span class="n">data_dict</span><span class="p">[</span><span class="s1">&#39;GNSS&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">index</span>
-        <span class="n">forward_timestamp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_integration</span><span class="o">.</span><span class="n">filtered_state_and_variance_df_xe</span><span class="o">.</span><span class="n">index</span>
+        <span class="n">forward_timestamp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_integration</span><span class="o">.</span><span class="n">forward_df_xe</span><span class="o">.</span><span class="n">index</span>
         <span class="n">backward_timestamp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_integration</span><span class="o">.</span><span class="n">backward_df_xe</span><span class="o">.</span><span class="n">index</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_integration</span><span class="o">.</span><span class="n">backward_df_xe</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="kc">None</span>
         <span class="n">timestamp_min_value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_min_value</span><span class="p">(</span><span class="n">gnss_timestamp</span><span class="p">,</span> <span class="n">forward_timestamp</span><span class="p">,</span>
                                                   <span class="n">backward_timestamp</span><span class="p">)</span> <span class="k">if</span> <span class="n">backward_timestamp</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_min_value</span><span class="p">(</span>
@@ -2114,31 +2129,12 @@
         <span class="n">additional_range_abs</span> <span class="o">=</span> <span class="n">additional_range</span> <span class="o">*</span> <span class="nb">abs</span><span class="p">(</span><span class="n">timestamp_max_value</span> <span class="o">-</span> <span class="n">timestamp_min_value</span><span class="p">)</span>
         <span class="n">dates_range</span> <span class="o">=</span> <span class="p">[</span><span class="n">timestamp_min_value</span> <span class="o">-</span> <span class="n">additional_range_abs</span><span class="p">,</span> <span class="n">timestamp_max_value</span> <span class="o">+</span> <span class="n">additional_range_abs</span><span class="p">]</span>
 
-        <span class="c1"># COLORS BY DATA TYPE</span>
-        <span class="n">data_colors</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;forward&quot;</span><span class="p">:</span> <span class="s2">&quot;rgb(25, 255, 25)&quot;</span><span class="p">,</span>
-                       <span class="s2">&quot;backward&quot;</span><span class="p">:</span> <span class="s2">&quot;rgb(255, 0, 0)&quot;</span><span class="p">,</span>
-                       <span class="s2">&quot;GNSS&quot;</span><span class="p">:</span> <span class="s2">&quot;rgb(0, 190, 255)&quot;</span><span class="p">,</span>
-
-                       <span class="s2">&quot;DInSAR&quot;</span><span class="p">:[</span><span class="s2">&quot;#0000ff&quot;</span><span class="p">,</span> <span class="s1">&#39;#1322FB&#39;</span><span class="p">,</span> <span class="s1">&#39;#2541F8&#39;</span><span class="p">,</span> <span class="s1">&#39;#375DF6&#39;</span><span class="p">,</span> <span class="s1">&#39;#4976F3&#39;</span><span class="p">,</span> <span class="s1">&#39;#5A8CF2&#39;</span><span class="p">,</span> <span class="s1">&#39;#6AA0F0&#39;</span><span class="p">,</span> <span class="s1">&#39;#7BB1EF&#39;</span><span class="p">,</span> <span class="s1">&#39;#8AC0EF&#39;</span><span class="p">,</span> <span class="s1">&#39;#9ACDEF&#39;</span><span class="p">],</span>
-                       <span class="s2">&quot;PSI&quot;</span><span class="p">:</span>   <span class="p">[</span><span class="s2">&quot;#771e87&quot;</span><span class="p">,</span> <span class="s1">&#39;#782390&#39;</span><span class="p">,</span> <span class="s1">&#39;#792999&#39;</span><span class="p">,</span> <span class="s1">&#39;#7A2FA2&#39;</span><span class="p">,</span> <span class="s1">&#39;#7A36AB&#39;</span><span class="p">,</span> <span class="s1">&#39;#7A3DB3&#39;</span><span class="p">,</span> <span class="s1">&#39;#7A45BA&#39;</span><span class="p">,</span> <span class="s1">&#39;#7B54BB&#39;</span><span class="p">,</span> <span class="s1">&#39;#7E62BC&#39;</span><span class="p">,</span> <span class="s1">&#39;#8370BD&#39;</span><span class="p">],</span>
-                       <span class="s2">&quot;SBAS&quot;</span><span class="p">:</span>  <span class="p">[</span><span class="s2">&quot;#7f822f&quot;</span><span class="p">,</span> <span class="s1">&#39;#8C8936&#39;</span><span class="p">,</span> <span class="s1">&#39;#938B3E&#39;</span><span class="p">,</span> <span class="s1">&#39;#9B8D46&#39;</span><span class="p">,</span> <span class="s1">&#39;#A28E4E&#39;</span><span class="p">,</span> <span class="s1">&#39;#A89057&#39;</span><span class="p">,</span> <span class="s1">&#39;#AA9064&#39;</span><span class="p">,</span> <span class="s1">&#39;#AC9372&#39;</span><span class="p">,</span> <span class="s1">&#39;#AE967E&#39;</span><span class="p">,</span> <span class="s1">&#39;#B19C8B&#39;</span><span class="p">],</span>
-                       <span class="p">}</span>
-
-        <span class="n">disp_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;0&quot;</span><span class="p">,</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="s2">&quot;4&quot;</span><span class="p">]</span>
-        <span class="n">rate_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;3&quot;</span><span class="p">,</span> <span class="s2">&quot;5&quot;</span><span class="p">]</span>
-
-        <span class="c1"># CREATE STORAGE FOR STORE MIN AND MAX FOR SPECIFIC DATA TYPE VALUES</span>
-        <span class="n">max_disp</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;ver&quot;</span><span class="p">:</span> <span class="p">[],</span> <span class="s2">&quot;hor&quot;</span><span class="p">:</span> <span class="p">[]}</span>
-        <span class="n">min_disp</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;ver&quot;</span><span class="p">:</span> <span class="p">[],</span> <span class="s2">&quot;hor&quot;</span><span class="p">:</span> <span class="p">[]}</span>
-        <span class="n">max_rate</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="n">min_rate</span> <span class="o">=</span> <span class="p">[]</span>
-
         <span class="c1"># ITERATION FOR GNSS DATA</span>
-        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">coord</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">disp_names</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">coord</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">disp_cols</span><span class="p">):</span>
             <span class="n">showlegend</span> <span class="o">=</span> <span class="kc">True</span> <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="kc">False</span>
             <span class="n">disp_gnss</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_integration</span><span class="o">.</span><span class="n">data_dict</span><span class="p">[</span><span class="s1">&#39;GNSS&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">coord</span><span class="p">]</span>
-            <span class="n">disp_forward</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_integration</span><span class="o">.</span><span class="n">filtered_state_and_variance_df_xe</span><span class="p">[</span><span class="n">disp_cols</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
-            <span class="n">rate_forward</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_integration</span><span class="o">.</span><span class="n">filtered_state_and_variance_df_xe</span><span class="p">[</span><span class="n">rate_cols</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">*</span> <span class="mi">1000</span>
+            <span class="n">disp_forward</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_integration</span><span class="o">.</span><span class="n">forward_df_xe</span><span class="p">[</span><span class="n">disp_cols</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
+            <span class="n">rate_forward</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_integration</span><span class="o">.</span><span class="n">forward_df_xe</span><span class="p">[</span><span class="n">rate_cols</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">*</span> <span class="mi">1000</span>
             <span class="n">disp_type</span> <span class="o">=</span> <span class="n">disp_units</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">coord</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">disp_type</span><span class="p">:</span>
                 <span class="n">max_disp</span><span class="p">[</span><span class="n">disp_type</span><span class="p">]</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="nb">max</span><span class="p">(</span><span class="n">disp_gnss</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">disp_forward</span><span class="p">)])</span>
@@ -2534,8 +2530,8 @@
             <span class="n">kalman_col</span> <span class="o">=</span> <span class="s1">&#39;  Kalman&lt;br&gt;Backward&#39;</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">kalman_col</span> <span class="o">=</span> <span class="s1">&#39; Kalman&lt;br&gt;Forward&#39;</span>
-            <span class="n">max_total_values</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_max_total</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data_integration</span><span class="o">.</span><span class="n">filtered_state_and_variance_df_xe</span><span class="p">)</span>
-            <span class="n">mean_rate</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_integration</span><span class="o">.</span><span class="n">filtered_state_and_variance_df_xe</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+            <span class="n">max_total_values</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_max_total</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data_integration</span><span class="o">.</span><span class="n">forward_df_xe</span><span class="p">)</span>
+            <span class="n">mean_rate</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_integration</span><span class="o">.</span><span class="n">forward_df_xe</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 
 
         <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Table</span><span class="p">(</span>
@@ -4067,9 +4063,7 @@
 <span class="normal">1001</span>
 <span class="normal">1002</span>
 <span class="normal">1003</span>
-<span class="normal">1004</span>
-<span class="normal">1005</span>
-<span class="normal">1006</span></pre></div></td><td class="code"><div><pre><span></span><code>    <span class="k">def</span> <span class="nf">create_displacement_plot</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="normal">1004</span></pre></div></td><td class="code"><div><pre><span></span><code>    <span class="k">def</span> <span class="nf">create_displacement_plot</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create displacement plot using Plotly and Dash.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -4114,17 +4108,34 @@
         <span class="n">cols</span> <span class="o">=</span> <span class="mi">3</span>
         <span class="n">specs</span> <span class="o">=</span> <span class="p">[[{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;xy&quot;</span><span class="p">}]</span> <span class="o">*</span> <span class="n">cols</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">rows</span><span class="o">-</span><span class="mi">1</span><span class="p">)]</span>
 
+        <span class="c1"># COLORS BY DATA TYPE</span>
+        <span class="n">data_colors</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;forward&quot;</span><span class="p">:</span> <span class="s2">&quot;rgb(25, 255, 25)&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;backward&quot;</span><span class="p">:</span> <span class="s2">&quot;rgb(255, 0, 0)&quot;</span><span class="p">,</span>
+                       <span class="s2">&quot;GNSS&quot;</span><span class="p">:</span> <span class="s2">&quot;rgb(0, 190, 255)&quot;</span><span class="p">,</span>
+
+                       <span class="s2">&quot;DInSAR&quot;</span><span class="p">:[</span><span class="s2">&quot;#0000ff&quot;</span><span class="p">,</span> <span class="s1">&#39;#1322FB&#39;</span><span class="p">,</span> <span class="s1">&#39;#2541F8&#39;</span><span class="p">,</span> <span class="s1">&#39;#375DF6&#39;</span><span class="p">,</span> <span class="s1">&#39;#4976F3&#39;</span><span class="p">,</span> <span class="s1">&#39;#5A8CF2&#39;</span><span class="p">,</span> <span class="s1">&#39;#6AA0F0&#39;</span><span class="p">,</span> <span class="s1">&#39;#7BB1EF&#39;</span><span class="p">,</span> <span class="s1">&#39;#8AC0EF&#39;</span><span class="p">,</span> <span class="s1">&#39;#9ACDEF&#39;</span><span class="p">],</span>
+                       <span class="s2">&quot;PSI&quot;</span><span class="p">:</span>   <span class="p">[</span><span class="s2">&quot;#771e87&quot;</span><span class="p">,</span> <span class="s1">&#39;#782390&#39;</span><span class="p">,</span> <span class="s1">&#39;#792999&#39;</span><span class="p">,</span> <span class="s1">&#39;#7A2FA2&#39;</span><span class="p">,</span> <span class="s1">&#39;#7A36AB&#39;</span><span class="p">,</span> <span class="s1">&#39;#7A3DB3&#39;</span><span class="p">,</span> <span class="s1">&#39;#7A45BA&#39;</span><span class="p">,</span> <span class="s1">&#39;#7B54BB&#39;</span><span class="p">,</span> <span class="s1">&#39;#7E62BC&#39;</span><span class="p">,</span> <span class="s1">&#39;#8370BD&#39;</span><span class="p">],</span>
+                       <span class="s2">&quot;SBAS&quot;</span><span class="p">:</span>  <span class="p">[</span><span class="s2">&quot;#7f822f&quot;</span><span class="p">,</span> <span class="s1">&#39;#8C8936&#39;</span><span class="p">,</span> <span class="s1">&#39;#938B3E&#39;</span><span class="p">,</span> <span class="s1">&#39;#9B8D46&#39;</span><span class="p">,</span> <span class="s1">&#39;#A28E4E&#39;</span><span class="p">,</span> <span class="s1">&#39;#A89057&#39;</span><span class="p">,</span> <span class="s1">&#39;#AA9064&#39;</span><span class="p">,</span> <span class="s1">&#39;#AC9372&#39;</span><span class="p">,</span> <span class="s1">&#39;#AE967E&#39;</span><span class="p">,</span> <span class="s1">&#39;#B19C8B&#39;</span><span class="p">],</span>
+                       <span class="p">}</span>
+
+        <span class="n">disp_cols</span>  <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;N&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="s2">&quot;U&quot;</span><span class="p">]</span>
+        <span class="n">rate_cols</span>  <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;vN&quot;</span><span class="p">,</span> <span class="s2">&quot;vE&quot;</span><span class="p">,</span> <span class="s2">&quot;vU&quot;</span><span class="p">]</span>
+        <span class="n">disp_units</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;U&quot;</span><span class="p">:</span> <span class="s2">&quot;ver&quot;</span><span class="p">,</span> <span class="s2">&quot;N&quot;</span><span class="p">:</span> <span class="s2">&quot;hor&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">:</span> <span class="s2">&quot;hor&quot;</span><span class="p">}</span>
+
+        <span class="c1"># CREATE STORAGE FOR STORE MIN AND MAX FOR SPECIFIC DATA TYPE VALUES</span>
+        <span class="n">max_disp</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;ver&quot;</span><span class="p">:</span> <span class="p">[],</span> <span class="s2">&quot;hor&quot;</span><span class="p">:</span> <span class="p">[]}</span>
+        <span class="n">min_disp</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;ver&quot;</span><span class="p">:</span> <span class="p">[],</span> <span class="s2">&quot;hor&quot;</span><span class="p">:</span> <span class="p">[]}</span>
+        <span class="n">max_rate</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">min_rate</span> <span class="o">=</span> <span class="p">[]</span>
+
         <span class="n">name_forward</span> <span class="o">=</span> <span class="s2">&quot;Forward&quot;</span>
         <span class="n">name_backward</span> <span class="o">=</span> <span class="s2">&quot;Backward&quot;</span>
 
-        <span class="n">GNSS_names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;North&quot;</span><span class="p">,</span> <span class="s2">&quot;East&quot;</span><span class="p">,</span> <span class="s2">&quot;Up&quot;</span><span class="p">]</span>
-        <span class="n">disp_names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;N&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="s2">&quot;U&quot;</span><span class="p">]</span>
-        <span class="n">disp_units</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;U&quot;</span><span class="p">:</span> <span class="s2">&quot;ver&quot;</span><span class="p">,</span> <span class="s2">&quot;N&quot;</span><span class="p">:</span> <span class="s2">&quot;hor&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">:</span> <span class="s2">&quot;hor&quot;</span><span class="p">}</span>
-
-        <span class="n">subplot_titles</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;&lt;b&gt;</span><span class="si">{</span><span class="n">GNSS_names</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&lt;/b&gt;&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;&lt;b&gt;</span><span class="si">{</span><span class="n">GNSS_names</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">&lt;/b&gt;&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;&lt;b&gt;</span><span class="si">{</span><span class="n">GNSS_names</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="si">}</span><span class="s2">&lt;/b&gt;&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">cols</span>
+        <span class="n">subplot_titles</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;&lt;b&gt;North&lt;/b&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;b&gt;East&lt;/b&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;b&gt;Up&lt;/b&gt;&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">cols</span>
 
         <span class="n">orbit_titles</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;&lt;b&gt;Orbit &quot;</span> <span class="o">+</span> <span class="n">orbit</span> <span class="o">+</span> <span class="s2">&quot;&lt;/b&gt;&quot;</span> <span class="k">for</span> <span class="n">orbit</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">orbits</span><span class="p">]</span>
         <span class="n">empty_titles</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="mi">3</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">number_of_orbits</span><span class="p">)</span>
+
         <span class="c1"># CREATE GRID FOR SUBPLOTS AND TITLES</span>
         <span class="k">if</span> <span class="s2">&quot;PSI&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sar_data_types</span> <span class="ow">or</span> <span class="s2">&quot;SBAS&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sar_data_types</span><span class="p">:</span>
             <span class="n">rows</span> <span class="o">+=</span> <span class="mi">1</span>
@@ -4152,7 +4163,7 @@
 
         <span class="c1"># GET TIMESTAMPS FOR GNSS, FORWARD, BACKWARD IF EXIST</span>
         <span class="n">gnss_timestamp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_integration</span><span class="o">.</span><span class="n">data_dict</span><span class="p">[</span><span class="s1">&#39;GNSS&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">index</span>
-        <span class="n">forward_timestamp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_integration</span><span class="o">.</span><span class="n">filtered_state_and_variance_df_xe</span><span class="o">.</span><span class="n">index</span>
+        <span class="n">forward_timestamp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_integration</span><span class="o">.</span><span class="n">forward_df_xe</span><span class="o">.</span><span class="n">index</span>
         <span class="n">backward_timestamp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_integration</span><span class="o">.</span><span class="n">backward_df_xe</span><span class="o">.</span><span class="n">index</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_integration</span><span class="o">.</span><span class="n">backward_df_xe</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="kc">None</span>
         <span class="n">timestamp_min_value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_min_value</span><span class="p">(</span><span class="n">gnss_timestamp</span><span class="p">,</span> <span class="n">forward_timestamp</span><span class="p">,</span>
                                                   <span class="n">backward_timestamp</span><span class="p">)</span> <span class="k">if</span> <span class="n">backward_timestamp</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_min_value</span><span class="p">(</span>
@@ -4165,31 +4176,12 @@
         <span class="n">additional_range_abs</span> <span class="o">=</span> <span class="n">additional_range</span> <span class="o">*</span> <span class="nb">abs</span><span class="p">(</span><span class="n">timestamp_max_value</span> <span class="o">-</span> <span class="n">timestamp_min_value</span><span class="p">)</span>
         <span class="n">dates_range</span> <span class="o">=</span> <span class="p">[</span><span class="n">timestamp_min_value</span> <span class="o">-</span> <span class="n">additional_range_abs</span><span class="p">,</span> <span class="n">timestamp_max_value</span> <span class="o">+</span> <span class="n">additional_range_abs</span><span class="p">]</span>
 
-        <span class="c1"># COLORS BY DATA TYPE</span>
-        <span class="n">data_colors</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;forward&quot;</span><span class="p">:</span> <span class="s2">&quot;rgb(25, 255, 25)&quot;</span><span class="p">,</span>
-                       <span class="s2">&quot;backward&quot;</span><span class="p">:</span> <span class="s2">&quot;rgb(255, 0, 0)&quot;</span><span class="p">,</span>
-                       <span class="s2">&quot;GNSS&quot;</span><span class="p">:</span> <span class="s2">&quot;rgb(0, 190, 255)&quot;</span><span class="p">,</span>
-
-                       <span class="s2">&quot;DInSAR&quot;</span><span class="p">:[</span><span class="s2">&quot;#0000ff&quot;</span><span class="p">,</span> <span class="s1">&#39;#1322FB&#39;</span><span class="p">,</span> <span class="s1">&#39;#2541F8&#39;</span><span class="p">,</span> <span class="s1">&#39;#375DF6&#39;</span><span class="p">,</span> <span class="s1">&#39;#4976F3&#39;</span><span class="p">,</span> <span class="s1">&#39;#5A8CF2&#39;</span><span class="p">,</span> <span class="s1">&#39;#6AA0F0&#39;</span><span class="p">,</span> <span class="s1">&#39;#7BB1EF&#39;</span><span class="p">,</span> <span class="s1">&#39;#8AC0EF&#39;</span><span class="p">,</span> <span class="s1">&#39;#9ACDEF&#39;</span><span class="p">],</span>
-                       <span class="s2">&quot;PSI&quot;</span><span class="p">:</span>   <span class="p">[</span><span class="s2">&quot;#771e87&quot;</span><span class="p">,</span> <span class="s1">&#39;#782390&#39;</span><span class="p">,</span> <span class="s1">&#39;#792999&#39;</span><span class="p">,</span> <span class="s1">&#39;#7A2FA2&#39;</span><span class="p">,</span> <span class="s1">&#39;#7A36AB&#39;</span><span class="p">,</span> <span class="s1">&#39;#7A3DB3&#39;</span><span class="p">,</span> <span class="s1">&#39;#7A45BA&#39;</span><span class="p">,</span> <span class="s1">&#39;#7B54BB&#39;</span><span class="p">,</span> <span class="s1">&#39;#7E62BC&#39;</span><span class="p">,</span> <span class="s1">&#39;#8370BD&#39;</span><span class="p">],</span>
-                       <span class="s2">&quot;SBAS&quot;</span><span class="p">:</span>  <span class="p">[</span><span class="s2">&quot;#7f822f&quot;</span><span class="p">,</span> <span class="s1">&#39;#8C8936&#39;</span><span class="p">,</span> <span class="s1">&#39;#938B3E&#39;</span><span class="p">,</span> <span class="s1">&#39;#9B8D46&#39;</span><span class="p">,</span> <span class="s1">&#39;#A28E4E&#39;</span><span class="p">,</span> <span class="s1">&#39;#A89057&#39;</span><span class="p">,</span> <span class="s1">&#39;#AA9064&#39;</span><span class="p">,</span> <span class="s1">&#39;#AC9372&#39;</span><span class="p">,</span> <span class="s1">&#39;#AE967E&#39;</span><span class="p">,</span> <span class="s1">&#39;#B19C8B&#39;</span><span class="p">],</span>
-                       <span class="p">}</span>
-
-        <span class="n">disp_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;0&quot;</span><span class="p">,</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="s2">&quot;4&quot;</span><span class="p">]</span>
-        <span class="n">rate_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;3&quot;</span><span class="p">,</span> <span class="s2">&quot;5&quot;</span><span class="p">]</span>
-
-        <span class="c1"># CREATE STORAGE FOR STORE MIN AND MAX FOR SPECIFIC DATA TYPE VALUES</span>
-        <span class="n">max_disp</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;ver&quot;</span><span class="p">:</span> <span class="p">[],</span> <span class="s2">&quot;hor&quot;</span><span class="p">:</span> <span class="p">[]}</span>
-        <span class="n">min_disp</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;ver&quot;</span><span class="p">:</span> <span class="p">[],</span> <span class="s2">&quot;hor&quot;</span><span class="p">:</span> <span class="p">[]}</span>
-        <span class="n">max_rate</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="n">min_rate</span> <span class="o">=</span> <span class="p">[]</span>
-
         <span class="c1"># ITERATION FOR GNSS DATA</span>
-        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">coord</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">disp_names</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">coord</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">disp_cols</span><span class="p">):</span>
             <span class="n">showlegend</span> <span class="o">=</span> <span class="kc">True</span> <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="kc">False</span>
             <span class="n">disp_gnss</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_integration</span><span class="o">.</span><span class="n">data_dict</span><span class="p">[</span><span class="s1">&#39;GNSS&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">coord</span><span class="p">]</span>
-            <span class="n">disp_forward</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_integration</span><span class="o">.</span><span class="n">filtered_state_and_variance_df_xe</span><span class="p">[</span><span class="n">disp_cols</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
-            <span class="n">rate_forward</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_integration</span><span class="o">.</span><span class="n">filtered_state_and_variance_df_xe</span><span class="p">[</span><span class="n">rate_cols</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">*</span> <span class="mi">1000</span>
+            <span class="n">disp_forward</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_integration</span><span class="o">.</span><span class="n">forward_df_xe</span><span class="p">[</span><span class="n">disp_cols</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
+            <span class="n">rate_forward</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_integration</span><span class="o">.</span><span class="n">forward_df_xe</span><span class="p">[</span><span class="n">rate_cols</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">*</span> <span class="mi">1000</span>
             <span class="n">disp_type</span> <span class="o">=</span> <span class="n">disp_units</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">coord</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">disp_type</span><span class="p">:</span>
                 <span class="n">max_disp</span><span class="p">[</span><span class="n">disp_type</span><span class="p">]</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="nb">max</span><span class="p">(</span><span class="n">disp_gnss</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">disp_forward</span><span class="p">)])</span>
@@ -4585,8 +4577,8 @@
             <span class="n">kalman_col</span> <span class="o">=</span> <span class="s1">&#39;  Kalman&lt;br&gt;Backward&#39;</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">kalman_col</span> <span class="o">=</span> <span class="s1">&#39; Kalman&lt;br&gt;Forward&#39;</span>
-            <span class="n">max_total_values</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_max_total</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data_integration</span><span class="o">.</span><span class="n">filtered_state_and_variance_df_xe</span><span class="p">)</span>
-            <span class="n">mean_rate</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_integration</span><span class="o">.</span><span class="n">filtered_state_and_variance_df_xe</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+            <span class="n">max_total_values</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_max_total</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data_integration</span><span class="o">.</span><span class="n">forward_df_xe</span><span class="p">)</span>
+            <span class="n">mean_rate</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_integration</span><span class="o">.</span><span class="n">forward_df_xe</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 
 
         <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Table</span><span class="p">(</span>
