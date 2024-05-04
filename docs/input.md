@@ -1,14 +1,16 @@
 # Input files structure
 
-The library is based on geodetic observations stored in the form of text files. Maintenance of the specific structure for all input files is necessary to ensure the successful completion of the integration procedure. To get the trial dataset for the MultiDEFusion library, see [Trial packages](../trial/).
+The library is based on geodetic observations stored in the form of text files stored in the defined folder. Maintenance of the specific structure for all input files is necessary to ensure the successful completion of the integration procedure.
 
 ## The structure of names of input file:
+
+The following files have to be located in the defined folder, the signature of which is given in the `stations` parameter of the `run_fusion` procedure (see [Usage](../usage/)).
 
 1. GNSS: "GNSS.txt" (Mandatory file)
 2. InSAR: (e.g., "DInSAR_Asc_1.txt", "DInSAR_Asc_2.txt", "SBAS_51_main.txt", "PSI_123.txt", etc.).
     - '*Type*'_'*Orbit*'.txt OR
-    - '*Type*'\_'*Orbit*'_'*Element*'.txt. The '*Element*' part is not mandatory.
-     where:
+    - '*Type*'\_'*Orbit*'_'*Element*'.txt. The '*Element*' part is not mandatory.<br>
+    where:
       - '*Type*' is a mandatory signature of the InSAR calculation method. Allowed values: "DInSAR", "SBAS" or "PSI".
       - '*Orbit*' is a mandatory signature of InSAR orbit. Allowed types: `str` or `int`, e.g., "Asc", "Desc", "51", "123", etc.
       - '*Element*' is a non-mandatory signature of a particular pixel or PS point. Allowed types: `str` or `int`, e.g., "1", "10254", "main", etc.
@@ -64,6 +66,8 @@ The library is based on geodetic observations stored in the form of text files. 
     | *ERROR*   | `float` | Error of LOS displacement [m] |
 
      **For all InSAR methods, the *ERROR* column can be replaced by: *COH* (`float`): *Coherence factor*. The coherence will be converted to the error value expressed in the metric domain using the theory presented in [Hanssen, 2001](https://repository.tudelft.nl/islandora/object/uuid%3Aa83859d5-c034-427e-b6a9-114c4b008d19) and [Tondaś et al., 2023](https://doi.org/10.1007/s00190-023-01789-z). To calculate the error using the coherence factor, the wavelength of the Sentinel-1 is applied.**
+
+#### To get the trial dataset of input files for the MultiDEFusion library, see [Trial packages](../trial/).
 
 [Hanssen, R. (2001).](https://repository.tudelft.nl/islandora/object/uuid%3Aa83859d5-c034-427e-b6a9-114c4b008d19) Radar interferometry: Data interpretation and error analysis.<br>
 [Tondaś, D. et al. (2023).](https://doi.org/10.1007/s00190-023-01789-z) Kalman filter-based integration of GNSS and InSAR observations for local nonlinear strong deformations.

@@ -1,4 +1,4 @@
-site_name: multidefusion
+site_name: MultiDEFusion
 site_description: Perform data fusion and analysis of the ground deformations for multiple stations.
 site_author: damiantondas
 site_url: https://damiantondas.github.io/multidefusion
@@ -75,8 +75,8 @@ nav:
     - Home: index.md
     - Installation: installation.md
     - Input files structure: input.md
-    - Trial packages: trial.md
     - Usage: usage.md
+    - Trial packages: trial.md
     - Output: output.md
     - Changelog: changelog.md
     - Contributing: contributing.md

@@ -169,17 +169,34 @@ class Figures:
         cols = 3
         specs = [[{"type": "xy"}] * cols for _ in range(rows-1)]
         
+        # COLORS BY DATA TYPE
+        data_colors = {"forward": "rgb(25, 255, 25)",
+                       "backward": "rgb(255, 0, 0)",
+                       "GNSS": "rgb(0, 190, 255)",
+
+                       "DInSAR":["#0000ff", '#1322FB', '#2541F8', '#375DF6', '#4976F3', '#5A8CF2', '#6AA0F0', '#7BB1EF', '#8AC0EF', '#9ACDEF'],
+                       "PSI":   ["#771e87", '#782390', '#792999', '#7A2FA2', '#7A36AB', '#7A3DB3', '#7A45BA', '#7B54BB', '#7E62BC', '#8370BD'],
+                       "SBAS":  ["#7f822f", '#8C8936', '#938B3E', '#9B8D46', '#A28E4E', '#A89057', '#AA9064', '#AC9372', '#AE967E', '#B19C8B'],
+                       }
+
+        disp_cols  = ["N", "E", "U"]
+        rate_cols  = ["vN", "vE", "vU"]
+        disp_units = {"U": "ver", "N": "hor", "E": "hor"}
+
+        # CREATE STORAGE FOR STORE MIN AND MAX FOR SPECIFIC DATA TYPE VALUES
+        max_disp = {"ver": [], "hor": []}
+        min_disp = {"ver": [], "hor": []}
+        max_rate = []
+        min_rate = []
+        
         name_forward = "Forward"
         name_backward = "Backward"
 
-        GNSS_names = ["North", "East", "Up"]
-        disp_names = ["N", "E", "U"]
-        disp_units = {"U": "ver", "N": "hor", "E": "hor"}
-
-        subplot_titles = [f"<b>{GNSS_names[0]}</b>", f"<b>{GNSS_names[1]}</b>", f"<b>{GNSS_names[2]}</b>"] + [''] * cols
+        subplot_titles = ["<b>North</b>", "<b>East</b>", "<b>Up</b>"] + [''] * cols
 
         orbit_titles = ["<b>Orbit " + orbit + "</b>" for orbit in self.orbits]
         empty_titles = [""] * (3 - self.number_of_orbits)
+        
         # CREATE GRID FOR SUBPLOTS AND TITLES
         if "PSI" in self.sar_data_types or "SBAS" in self.sar_data_types:
             rows += 1
@@ -207,7 +224,7 @@ class Figures:
 
         # GET TIMESTAMPS FOR GNSS, FORWARD, BACKWARD IF EXIST
         gnss_timestamp = self.data_integration.data_dict['GNSS'].data.index
-        forward_timestamp = self.data_integration.filtered_state_and_variance_df_xe.index
+        forward_timestamp = self.data_integration.forward_df_xe.index
         backward_timestamp = self.data_integration.backward_df_xe.index if self.data_integration.backward_df_xe is not None else None
         timestamp_min_value = self.find_min_value(gnss_timestamp, forward_timestamp,
                                                   backward_timestamp) if backward_timestamp is not None else self.find_min_value(
@@ -219,32 +236,13 @@ class Figures:
         # CREATE DATES RANGE INCLUDING ADDITIONAL RANGE
         additional_range_abs = additional_range * abs(timestamp_max_value - timestamp_min_value)
         dates_range = [timestamp_min_value - additional_range_abs, timestamp_max_value + additional_range_abs]
-
-        # COLORS BY DATA TYPE
-        data_colors = {"forward": "rgb(25, 255, 25)",
-                       "backward": "rgb(255, 0, 0)",
-                       "GNSS": "rgb(0, 190, 255)",
-
-                       "DInSAR":["#0000ff", '#1322FB', '#2541F8', '#375DF6', '#4976F3', '#5A8CF2', '#6AA0F0', '#7BB1EF', '#8AC0EF', '#9ACDEF'],
-                       "PSI":   ["#771e87", '#782390', '#792999', '#7A2FA2', '#7A36AB', '#7A3DB3', '#7A45BA', '#7B54BB', '#7E62BC', '#8370BD'],
-                       "SBAS":  ["#7f822f", '#8C8936', '#938B3E', '#9B8D46', '#A28E4E', '#A89057', '#AA9064', '#AC9372', '#AE967E', '#B19C8B'],
-                       }
-
-        disp_cols = ["0", "2", "4"]
-        rate_cols = ["1", "3", "5"]
-
-        # CREATE STORAGE FOR STORE MIN AND MAX FOR SPECIFIC DATA TYPE VALUES
-        max_disp = {"ver": [], "hor": []}
-        min_disp = {"ver": [], "hor": []}
-        max_rate = []
-        min_rate = []
         
         # ITERATION FOR GNSS DATA
-        for i, coord in enumerate(disp_names):
+        for i, coord in enumerate(disp_cols):
             showlegend = True if i == 0 else False
             disp_gnss = self.data_integration.data_dict['GNSS'].data[coord]
-            disp_forward = self.data_integration.filtered_state_and_variance_df_xe[disp_cols[i]]
-            rate_forward = self.data_integration.filtered_state_and_variance_df_xe[rate_cols[i]] * 1000
+            disp_forward = self.data_integration.forward_df_xe[disp_cols[i]]
+            rate_forward = self.data_integration.forward_df_xe[rate_cols[i]] * 1000
             disp_type = disp_units.get(coord, None)
             if disp_type:
                 max_disp[disp_type].extend([max(disp_gnss), max(disp_forward)])
@@ -640,8 +638,8 @@ class Figures:
             kalman_col = '  Kalman<br>Backward'
         else:
             kalman_col = ' Kalman<br>Forward'
-            max_total_values = self.find_max_total(self.data_integration.filtered_state_and_variance_df_xe)
-            mean_rate = self.data_integration.filtered_state_and_variance_df_xe.mean()
+            max_total_values = self.find_max_total(self.data_integration.forward_df_xe)
+            mean_rate = self.data_integration.forward_df_xe.mean()
         
        
         fig.add_trace(go.Table(

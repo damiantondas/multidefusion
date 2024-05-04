@@ -28,16 +28,16 @@ def run_fusion(stations, path, method, noise):
     Returns:
         integration_results (dict): DataIntegration objects
     """
-    port = 8050
+    port = 8049
     integration_results = {}
     if stations == "ALL":
         stations = [f.name for f in os.scandir(path) if f.is_dir()]
     for station in stations:
-        print(f"Processing data for station: {station}\n")
-        print(f"Kalman {method} integration procedure in progress...")
+        print(f"\nFusion started for station: {station}\n")
+        print(f"Kalman {method} integration procedure in progress.")
+        port +=1
         integration = DataIntegration(station_name=station, path=path, noise=noise, port=port)
         integration.connect_data()
-        port +=1
         try:
             if method == "forward":
                 integration.kalman_forward()

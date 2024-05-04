@@ -24,12 +24,12 @@ class DataIntegration:
         data_dict (Dict[str, Dict[str, Any]]): A dictionary containing data objects organized by data type and label.
         mean_data_dict (Dict[str, Dict[str, Any]]): Dictionary to store averaged data after integration is performed.
         predicted_state_and_variance (Dict[datetime.date, Dict[str, Any]]): Predicted state and variance for each date.
-        filtered_state_and_variance (Dict[datetime.date, Dict[str, Any]]): Filtered state and variance for each date.
+        forward (Dict[datetime.date, Dict[str, Any]]): Filtered state and variance for each date.
         backward (Dict[datetime.date, Dict[str, Any]]): Backward estimated state and variance for each date.
         latest_date_all_data (Optional[datetime.date]): The latest date among all data types.
         earliest_date_gnss (Optional[datetime.date]): The earliest date among GNSS data.
         noise (float): The noise parameter for the Kalman filter [mm/day^2 ].
-        filtered_state_and_variance_df_xe (pd.DataFrame): Converted data to pd.DataFrame from filtered_state_and_variance for xe keys.
+        forward_df_xe (pd.DataFrame): Converted data to pd.DataFrame from forward for xe keys.
         backward_df_xe (pd.DataFrame): Converted data to pd.DataFrame from backward for xe keys.
     """
 
@@ -39,17 +39,17 @@ class DataIntegration:
 
     def __init__(self, station_name: str, path: str, noise: float, port: int) -> None:
         self.station = station_name
-        self.path = path
+        self.path = os.path(path)
         self.port = port
         self.data_dict = {}
         self.mean_data_dict = {}
         self.predicted_state_and_variance = {}
-        self.filtered_state_and_variance = {}
+        self.forward = {}
         self.backward = {}
         self.latest_date_all_data = None
         self.earliest_date_gnss = None
         self.noise = noise/1000
-        self.filtered_state_and_variance_df_xe = None
+        self.forward_df_xe = None
         self.backward_df_xe = None
 
         self.xe = np.zeros((self.N, 1))
@@ -349,7 +349,7 @@ class DataIntegration:
         mat = np.array(
             [np.sin(inc_ang_mean) * np.sin(head_ang_mean), - np.sin(inc_ang_mean) * np.cos(head_ang_mean),
              np.cos(inc_ang_mean)]).reshape(1, -1)
-        df = self.filtered_state_and_variance[date - datetime.timedelta(days=1)]['xe'][start_col::2] * rate
+        df = self.forward[date - datetime.timedelta(days=1)]['xe'][start_col::2] * rate
         LOS = np.dot(mat, df).T
         data_obj.data['DSP'] = data_obj.data['DSP'] + LOS[0]
         data_obj.bias_reduction = False
@@ -442,33 +442,33 @@ class DataIntegration:
 
             # measurement update (estimate)
             xe, Pe, v, Qv, K = self.measurement_update(xp, Pp, obs_vector, error_matrix, projection_matrix)
-            self.filtered_state_and_variance[date] = {"xe": xe, "Pe": Pe}
-        self.filtered_state_and_variance_df_xe = pd.DataFrame(
-            [(timestamp, *values["xe"]) for timestamp, values in self.filtered_state_and_variance.items()],
-            columns=["timestamp", "0", "1", "2", "3", "4", "5"]).set_index("timestamp").astype(float)
+            self.forward[date] = {"xe": xe, "Pe": Pe}
+        self.forward_df_xe = pd.DataFrame(
+            [(timestamp, *values["xe"]) for timestamp, values in self.forward.items()],
+            columns=["timestamp", "N", "vN", "E", "vE", "U", "vU"]).set_index("timestamp").astype(float)
 
     def kalman_forward_backward(self):
         """
         Performs the forward-backward pass of the Kalman filter.
         """
-        if not self.filtered_state_and_variance or not self.predicted_state_and_variance:
+        if not self.forward or not self.predicted_state_and_variance:
             self.kalman_forward()
         date_range = pd.date_range(start=self.earliest_date_gnss, end=self.latest_date_all_data, freq=self.TIME_INTERVAL)
 
         F = self.transition_matrix
-        xe_b = self.filtered_state_and_variance.get(date_range[-1])["xe"]
-        Pe_b = self.filtered_state_and_variance.get(date_range[-1])["Pe"]
+        xe_b = self.forward.get(date_range[-1])["xe"]
+        Pe_b = self.forward.get(date_range[-1])["Pe"]
 
         for date in reversed(date_range[:-1]):
             next_day = date + datetime.timedelta(days=self.TIME_INTERVAL_NUM)
 
-            L = np.dot(np.dot(self.filtered_state_and_variance.get(date)["Pe"], np.transpose(F)), np.linalg.inv(self.predicted_state_and_variance.get(next_day)["Pp"]))
-            xe_b = self.filtered_state_and_variance.get(date)["xe"] + np.dot(L, (xe_b - self.predicted_state_and_variance.get(next_day)["xp"]))
-            Pe_b = self.filtered_state_and_variance.get(date)["Pe"] + np.dot(np.dot(L, (Pe_b - self.predicted_state_and_variance.get(next_day)["Pp"])), np.transpose(L))
+            L = np.dot(np.dot(self.forward.get(date)["Pe"], np.transpose(F)), np.linalg.inv(self.predicted_state_and_variance.get(next_day)["Pp"]))
+            xe_b = self.forward.get(date)["xe"] + np.dot(L, (xe_b - self.predicted_state_and_variance.get(next_day)["xp"]))
+            Pe_b = self.forward.get(date)["Pe"] + np.dot(np.dot(L, (Pe_b - self.predicted_state_and_variance.get(next_day)["Pp"])), np.transpose(L))
             self.backward[date] = {"xe_b": xe_b, "Pe_b": Pe_b}
         self.backward_df_xe = pd.DataFrame(
             [(timestamp, *values["xe_b"]) for timestamp, values in self.backward.items()],
-            columns=["timestamp", "0", "1", "2", "3", "4", "5"]).set_index("timestamp").astype(float)
+            columns=["timestamp", "N", "vN", "E", "vE", "U", "vU"]).set_index("timestamp").astype(float)
 
     @staticmethod
     def _process_technique_data(data, container_head, container_inc):
@@ -527,10 +527,10 @@ class DataIntegration:
                      ]
                 ).reshape(1, -1)
 
-                df = self.filtered_state_and_variance_df_xe
+                df = self.forward_df_xe
                 df = df[cols] * rate
                 LOS = np.dot(mat, df.values.T).T
-                LOS = pd.DataFrame(LOS, index=self.filtered_state_and_variance_df_xe.index)
+                LOS = pd.DataFrame(LOS, index=self.forward_df_xe.index)
                 self.mean_data_dict.setdefault(name, {}).setdefault(orbit, {})["forward_mean"] = LOS[0]
 
                 if self.backward_df_xe is not None:
@@ -557,6 +557,6 @@ class DataIntegration:
                     self._process_technique_data(data, container_head_DInSAR, container_inc_DInSAR)
                 elif technique == "PSI" or technique == "SBAS":
                     self._process_technique_data(data, container_head_psi_sbas, container_inc_psi_sbas)
-            self._process_for_orbit(container_head_psi_sbas, container_inc_psi_sbas, ["0", "2", "4"],
+            self._process_for_orbit(container_head_psi_sbas, container_inc_psi_sbas, ["N", "E", "U"],
                                     "SAR_SBAS_PSI_MEAN", 1)
-            self._process_for_orbit(container_head_DInSAR, container_inc_DInSAR, ["1", "3", "5"], "DInSAR", 1000)
+            self._process_for_orbit(container_head_DInSAR, container_inc_DInSAR, ["vN", "vE", "vU"], "DInSAR", 1000)

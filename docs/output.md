@@ -38,3 +38,7 @@ The most important plot features:
 The MultDEFusion library returns a dataset of time series for a particular station.
 
 The collection of data is stored in the dictionary, where the key is the signature of station, and the value is the containing the dataset of time series.
+
+Using the example parameter signature given in the [Trial](../trial/) section, to obtain the time series of Kalman filter results of PI03 station from forward approach, type in your IDE console: `integration["PI03"].forward`. Furthermore, to get the data from Kalman backward approach, type: `integration["PI03"].backward`. *Warning: Some IDEs may require to stop the console beforehand.*
+
+More information about attributes of Dataset output can be found in the API Reference [integration module](../integration/) section.
