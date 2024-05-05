@@ -27,7 +27,7 @@ The description of initial parameters:
 
 ## Important remarks
 
-1. The integration procedure can include a single station folder (e.g., `stations = ["PI01"]`) stored in the `path`, a list of stations (e.g., `stations = ["PI01", "PI02", "PI03"]`) or **ALL** of them (`stations = "ALL"`).
+1. The integration procedure can include a single station folder (e.g., `stations = ["ID01"]`) stored in the `path`, a list of stations (e.g., `stations = ["ID01", "ID02", "POINT_5"]`) or **ALL** of them (`stations = "ALL"`).
 
 2. For each particular station's folder, it is necessary to store the geodetic data in the ASCII files (see [Input](../input/)).
 
@@ -54,7 +54,7 @@ The description of initial parameters:
     integration = run_fusion(stations=["ID01"], path="C:\\path\\to\\folder\\", method="forward", noise=0.05)
     ```
 
-3. An example script to run fusion for `ID01` and `POINT05` stations in `C:\path\to\folder\` folder using `forward-backward` method with `0.045` mm/day<sup>2</sup> noise level.
+3. An example script to run fusion for `ID01` and `POINT_5` stations in `C:\path\to\folder\` folder using `forward-backward` method with `0.045` mm/day<sup>2</sup> noise level.
 
     ```
     from multidefusion.fusion import run_fusion

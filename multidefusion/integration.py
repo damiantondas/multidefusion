@@ -21,7 +21,7 @@ class DataIntegration:
     Attributes:
         station (str): The name of the station.
         path (str): The base path where data files are located.
-        data_dict (Dict[str, Dict[str, Any]]): A dictionary containing data objects organized by data type and label.
+        data_dict (Dict[str, Dict[str, Any]]): A dictionary containing data objects organized by data type and label. More information about attributes can be found in the API Reference [datainterface module](https://damiantondas.github.io/multidefusion/datainterface/) section.
         mean_data_dict (Dict[str, Dict[str, Any]]): Dictionary to store averaged data after integration is performed.
         predicted_state_and_variance (Dict[datetime.date, Dict[str, Any]]): Predicted state and variance for each date.
         forward (Dict[datetime.date, Dict[str, Any]]): Filtered state and variance for each date.
@@ -39,7 +39,7 @@ class DataIntegration:
 
     def __init__(self, station_name: str, path: str, noise: float, port: int) -> None:
         self.station = station_name
-        self.path = os.path(path)
+        self.path = os.path.normpath(path)
         self.port = port
         self.data_dict = {}
         self.mean_data_dict = {}

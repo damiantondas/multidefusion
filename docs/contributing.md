@@ -29,7 +29,7 @@ Look through the GitHub issues for features. Anything tagged with
 
 ### Write Documentation
 
-multidefusion could always use more documentation,
+MultiDEFusion could always use more documentation,
 whether as part of the official multidefusion docs,
 in docstrings, or even on the web in blog posts, articles, and such.
 

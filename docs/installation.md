@@ -18,6 +18,6 @@ The library works in the Python environment. To run the integration procedure, t
 
 1. Within a particular IDE, ensure that the path of your Python interpreter is the same as that used in the terminal during installation. The example of changing the Python environment path in the Spyder can be found [here](https://docs.spyder-ide.org/current/faq.html#using-existing-environment).
 2. Using PyCharm, launch the script using *Run File In Python Console*. This setting can be defined as constant in *Run* &#8594; *Edit Configurations* &#8594; *Run with Python console*. The example can be found [here](https://stackoverflow.com/questions/16874046/running-a-module-from-the-pycharm-console).
-3. Using Visual Studio Code, launch the script using *Run in Interactive Window*. This option may require the *Jupyter* extension to be installed. The example can be found [here](https://stackoverflow.com/questions/75237574/get-the-python-console-in-a-vscode).
+3. Using Visual Studio Code, launch the script using *Run in Interactive Window*. To make this option available, the installation of the [Jupyter extension](https://code.visualstudio.com/docs/python/jupyter-support-py) may be required. The example can be found [here](https://stackoverflow.com/questions/75237574/get-the-python-console-in-a-vscode).
 
 

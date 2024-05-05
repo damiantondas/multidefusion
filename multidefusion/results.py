@@ -537,9 +537,7 @@ class Figures:
             subplots_postition_orbits = str(self.number_of_orbits) + "*"
         else:
             subplots_postition_orbits = str(self.number_of_orbits)
-            
 
-        
         table_vertical  = table_postition['GNSS']
         table_title_pos = shift_title_fig*5
         picker_position = custom_position['GNSS']
@@ -1000,5 +998,7 @@ class Figures:
        
         
         print("MultiDEFusion procedure accomplished.\n")
-        app.run_server(debug=True, host="localhost", port=self.data_integration.port);
-        webbrowser.open(f'http://localhost:{self.data_integration.port}')
+        if __name__ == 'multidefusion.results':
+            app.run_server(debug=True, host="localhost", port=self.data_integration.port, use_reloader=False);
+            webbrowser.open(f'http://localhost:{self.data_integration.port}')
+            print("___________________________________________________________")
