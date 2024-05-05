@@ -306,11 +306,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../input/" class="md-nav__link">
+      <a href="../usage/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Input files structure
+    Usage
   </span>
   
 
@@ -326,11 +326,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../usage/" class="md-nav__link">
+      <a href="../input/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Usage
+    Input files structure
   </span>
   
 
@@ -2430,8 +2430,6 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="n">subplots_postition_orbits</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">number_of_orbits</span><span class="p">)</span>
 
-
-
         <span class="n">table_vertical</span>  <span class="o">=</span> <span class="n">table_postition</span><span class="p">[</span><span class="s1">&#39;GNSS&#39;</span><span class="p">]</span>
         <span class="n">table_title_pos</span> <span class="o">=</span> <span class="n">shift_title_fig</span><span class="o">*</span><span class="mi">5</span>
         <span class="n">picker_position</span> <span class="o">=</span> <span class="n">custom_position</span><span class="p">[</span><span class="s1">&#39;GNSS&#39;</span><span class="p">]</span>
@@ -2892,8 +2890,10 @@
 
 
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MultiDEFusion procedure accomplished.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="n">app</span><span class="o">.</span><span class="n">run_server</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="s2">&quot;localhost&quot;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">data_integration</span><span class="o">.</span><span class="n">port</span><span class="p">);</span>
-        <span class="n">webbrowser</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;http://localhost:</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">data_integration</span><span class="o">.</span><span class="n">port</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;multidefusion.results&#39;</span><span class="p">:</span>
+            <span class="n">app</span><span class="o">.</span><span class="n">run_server</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="s2">&quot;localhost&quot;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">data_integration</span><span class="o">.</span><span class="n">port</span><span class="p">,</span> <span class="n">use_reloader</span><span class="o">=</span><span class="kc">False</span><span class="p">);</span>
+            <span class="n">webbrowser</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;http://localhost:</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">data_integration</span><span class="o">.</span><span class="n">port</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;___________________________________________________________&quot;</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
             </details>
 
@@ -4477,8 +4477,6 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="n">subplots_postition_orbits</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">number_of_orbits</span><span class="p">)</span>
 
-
-
         <span class="n">table_vertical</span>  <span class="o">=</span> <span class="n">table_postition</span><span class="p">[</span><span class="s1">&#39;GNSS&#39;</span><span class="p">]</span>
         <span class="n">table_title_pos</span> <span class="o">=</span> <span class="n">shift_title_fig</span><span class="o">*</span><span class="mi">5</span>
         <span class="n">picker_position</span> <span class="o">=</span> <span class="n">custom_position</span><span class="p">[</span><span class="s1">&#39;GNSS&#39;</span><span class="p">]</span>
@@ -4939,8 +4937,10 @@
 
 
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MultiDEFusion procedure accomplished.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="n">app</span><span class="o">.</span><span class="n">run_server</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="s2">&quot;localhost&quot;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">data_integration</span><span class="o">.</span><span class="n">port</span><span class="p">);</span>
-        <span class="n">webbrowser</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;http://localhost:</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">data_integration</span><span class="o">.</span><span class="n">port</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;multidefusion.results&#39;</span><span class="p">:</span>
+            <span class="n">app</span><span class="o">.</span><span class="n">run_server</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="s2">&quot;localhost&quot;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">data_integration</span><span class="o">.</span><span class="n">port</span><span class="p">,</span> <span class="n">use_reloader</span><span class="o">=</span><span class="kc">False</span><span class="p">);</span>
+            <span class="n">webbrowser</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;http://localhost:</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">data_integration</span><span class="o">.</span><span class="n">port</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;___________________________________________________________&quot;</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
           </details>
   </div>

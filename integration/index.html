@@ -306,11 +306,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../input/" class="md-nav__link">
+      <a href="../usage/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Input files structure
+    Usage
   </span>
   
 
@@ -326,11 +326,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../usage/" class="md-nav__link">
+      <a href="../input/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Usage
+    Input files structure
   </span>
   
 
@@ -1124,7 +1124,7 @@
           </td>
           <td>
             <div class="doc-md-description">
-              <p>A dictionary containing data objects organized by data type and label.</p>
+              <p>A dictionary containing data objects organized by data type and label. More information about attributes can be found in the API Reference <a href="https://damiantondas.github.io/multidefusion/datainterface/">datainterface module</a> section.</p>
             </div>
           </td>
         </tr>
@@ -1796,7 +1796,7 @@
 <span class="sd">    Attributes:</span>
 <span class="sd">        station (str): The name of the station.</span>
 <span class="sd">        path (str): The base path where data files are located.</span>
-<span class="sd">        data_dict (Dict[str, Dict[str, Any]]): A dictionary containing data objects organized by data type and label.</span>
+<span class="sd">        data_dict (Dict[str, Dict[str, Any]]): A dictionary containing data objects organized by data type and label. More information about attributes can be found in the API Reference [datainterface module](https://damiantondas.github.io/multidefusion/datainterface/) section.</span>
 <span class="sd">        mean_data_dict (Dict[str, Dict[str, Any]]): Dictionary to store averaged data after integration is performed.</span>
 <span class="sd">        predicted_state_and_variance (Dict[datetime.date, Dict[str, Any]]): Predicted state and variance for each date.</span>
 <span class="sd">        forward (Dict[datetime.date, Dict[str, Any]]): Filtered state and variance for each date.</span>
@@ -1814,7 +1814,7 @@
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">station_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">noise</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">port</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">station</span> <span class="o">=</span> <span class="n">station_name</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">normpath</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">port</span> <span class="o">=</span> <span class="n">port</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">data_dict</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">mean_data_dict</span> <span class="o">=</span> <span class="p">{}</span>

@@ -306,11 +306,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../input/" class="md-nav__link">
+      <a href="../usage/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Input files structure
+    Usage
   </span>
   
 
@@ -326,11 +326,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../usage/" class="md-nav__link">
+      <a href="../input/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Usage
+    Input files structure
   </span>
   
 
@@ -747,8 +747,8 @@
   
       <p>The library is based on geodetic observations stored in the form of text files. Maintenance of the specific structure for all input files is necessary to ensure the successful completion of the integration procedure. </p>
 <p>Important remarks:
-1. The integration procedure can include a single station folder (e.g., stations = ["PI01"]) stored in the path, a list of stations (e.g., stations = ["PI01", "PI02", "PI03"]) or ALL of them (stations = "ALL").
-2. For each particular station's folder, it is necessary to store the geodetic data in the ASCII files (see <a href="../input.md">Input</a>).
+1. The integration procedure can include a single station folder (e.g., stations = ["ID01"]) stored in the path, a list of stations (e.g., stations = ["ID01", "ID02", "POINT_5"]) or ALL of them (stations = "ALL").
+2. For each particular station's folder, it is necessary to store the geodetic data in the ASCII files (see <a href="https://damiantondas.github.io/multidefusion/input/">Input</a>).
 3. Every ASCII file stored in the station's folder will be included in the integration procedure with respect to the chosen method ("forward" or "forward-backward").
 4. The noise level expressed as acceleration in mm/day^2^ should by assigned by user in the empirical way.
 5. In the library, the zero-mean acceleration model is introduced as the system noise matrix (Teunissen, 2009).</p>
@@ -932,8 +932,8 @@
 <span class="sd">    The library is based on geodetic observations stored in the form of text files. Maintenance of the specific structure for all input files is necessary to ensure the successful completion of the integration procedure. </span>
 
 <span class="sd">    Important remarks:</span>
-<span class="sd">    1. The integration procedure can include a single station folder (e.g., stations = [&quot;PI01&quot;]) stored in the path, a list of stations (e.g., stations = [&quot;PI01&quot;, &quot;PI02&quot;, &quot;PI03&quot;]) or ALL of them (stations = &quot;ALL&quot;).</span>
-<span class="sd">    2. For each particular station&#39;s folder, it is necessary to store the geodetic data in the ASCII files (see [Input](../input.md)).</span>
+<span class="sd">    1. The integration procedure can include a single station folder (e.g., stations = [&quot;ID01&quot;]) stored in the path, a list of stations (e.g., stations = [&quot;ID01&quot;, &quot;ID02&quot;, &quot;POINT_5&quot;]) or ALL of them (stations = &quot;ALL&quot;).</span>
+<span class="sd">    2. For each particular station&#39;s folder, it is necessary to store the geodetic data in the ASCII files (see [Input](https://damiantondas.github.io/multidefusion/input/)).</span>
 <span class="sd">    3. Every ASCII file stored in the station&#39;s folder will be included in the integration procedure with respect to the chosen method (&quot;forward&quot; or &quot;forward-backward&quot;).</span>
 <span class="sd">    4. The noise level expressed as acceleration in mm/day^2^ should by assigned by user in the empirical way.</span>
 <span class="sd">    5. In the library, the zero-mean acceleration model is introduced as the system noise matrix (Teunissen, 2009).</span>
@@ -957,7 +957,7 @@
     <span class="k">if</span> <span class="n">stations</span> <span class="o">==</span> <span class="s2">&quot;ALL&quot;</span><span class="p">:</span>
         <span class="n">stations</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">scandir</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">is_dir</span><span class="p">()]</span>
     <span class="k">for</span> <span class="n">station</span> <span class="ow">in</span> <span class="n">stations</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Fusion started for station: </span><span class="si">{</span><span class="n">station</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">___________________________________________________________</span><span class="se">\n</span><span class="s2">Fusion started for station: </span><span class="si">{</span><span class="n">station</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Kalman </span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s2"> integration procedure in progress.&quot;</span><span class="p">)</span>
         <span class="n">port</span> <span class="o">+=</span><span class="mi">1</span>
         <span class="n">integration</span> <span class="o">=</span> <span class="n">DataIntegration</span><span class="p">(</span><span class="n">station_name</span><span class="o">=</span><span class="n">station</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">path</span><span class="p">,</span> <span class="n">noise</span><span class="o">=</span><span class="n">noise</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="n">port</span><span class="p">)</span>

@@ -9,11 +9,10 @@ The following files have to be located in the defined folder, the signature of w
 1. GNSS: "GNSS.txt" (Mandatory file)
 2. InSAR: (e.g., "DInSAR_Asc_1.txt", "DInSAR_Asc_2.txt", "SBAS_51_main.txt", "PSI_123.txt", etc.).
     - '*Type*'_'*Orbit*'.txt OR
-    - '*Type*'\_'*Orbit*'_'*Element*'.txt. The '*Element*' part is not mandatory.<br>
-    where:
-      - '*Type*' is a mandatory signature of the InSAR calculation method. Allowed values: "DInSAR", "SBAS" or "PSI".
-      - '*Orbit*' is a mandatory signature of InSAR orbit. Allowed types: `str` or `int`, e.g., "Asc", "Desc", "51", "123", etc.
-      - '*Element*' is a non-mandatory signature of a particular pixel or PS point. Allowed types: `str` or `int`, e.g., "1", "10254", "main", etc.
+    - '*Type*'\_'*Orbit*'_'*Element*'.txt. The '*Element*' part is not mandatory. Where:
+        - '*Type*' is a mandatory signature of the InSAR calculation method. Allowed values: "DInSAR", "SBAS" or "PSI".
+        - '*Orbit*' is a mandatory signature of InSAR orbit. Allowed types: `str` or `int`, e.g., "Asc", "Desc", "51", "123", etc.
+        - '*Element*' is a non-mandatory signature of a particular pixel or PS point. Allowed types: `str` or `int`, e.g., "1", "10254", "main", etc.
       
 ## Restrictions on the input files:
 1. The "GNSS.txt" is a mandatory file.
