@@ -53,6 +53,6 @@ setup(
     test_suite='tests',
     tests_require=test_requirements,
     url='https://github.com/damiantondas/multidefusion',
-    version='0.0.24',
+    version='0.1',
     zip_safe=False,
 )
