@@ -6,20 +6,20 @@ The library is based on geodetic observations stored in the form of text files s
 
 The following files have to be located in the defined folder, the signature of which is given in the `stations` parameter of the `run_fusion` procedure (see [Usage](../usage/)).
 
-1. GNSS: "GNSS.txt" (Mandatory file)
+1. GNSS: *GNSS.txt* (Mandatory file)
 2. InSAR: (e.g., "DInSAR_Asc_1.txt", "DInSAR_Asc_2.txt", "SBAS_51_main.txt", "PSI_123.txt", etc.).
-    - '*Type*'_'*Orbit*'.txt OR,
-    - '*Type*'\_'*Orbit*'_'*Element*'.txt ('*Element*' is not mandatory):
-        - '*Type*' is a mandatory signature of the InSAR calculation method. Allowed values: "DInSAR", "SBAS" or "PSI".
-        - '*Orbit*' is a mandatory signature of InSAR orbit. Allowed types: `str` or `int`, e.g., "Asc", "Desc", "51", "123", etc.
-        - '*Element*' is a non-mandatory signature of a particular pixel or PS point. Allowed types: `str` or `int`, e.g., "1", "102fa", "main", etc.
+    - *Type*_*Orbit.txt* or,
+    - *Type*\_*Orbit*_*Element.txt* (*Element* is not mandatory):
+        - *Type* is a mandatory signature of the InSAR calculation method. Allowed values: "DInSAR", "SBAS" or "PSI".
+        - *Orbit* is a mandatory signature of InSAR orbit. Allowed types: `str` or `int`, e.g., "Asc", "Desc", "51", "123", etc.
+        - *Element* is a non-mandatory signature of a particular pixel or PS point. Allowed types: `str` or `int`, e.g., "1", "102fa", "main", etc.
       
 ## Restrictions on the input files:
-1. The "GNSS.txt" is a mandatory file.
-2. The InSAR '*Type*' can be realised only by the "DInSAR", "SBAS" or "PSI" signature.
-3. The number of distinct InSAR '*Orbit*' signatures must be less than or equal to 3.
-4. The number of distinct InSAR '*Element*' signatures within particular '*Orbit*' must be less than or equal to 9.
-5. The number of distinct InSAR '*Element*' signatures within particular '*Type*' must be less than or equal to 10.
+1. The *GNSS.txt* is a mandatory file.
+2. The InSAR *Type* can be realised only by the "DInSAR", "SBAS" or "PSI" signature.
+3. The number of distinct InSAR *Orbit* signatures must be less than or equal to 3.
+4. The number of distinct InSAR *Element* signatures within particular *Orbit* must be less than or equal to 9.
+5. The number of distinct InSAR *Element* signatures within particular *Type* must be less than or equal to 10.
 
 ## Headers and data columns structure in the input files:
 1. GNSS: `YYYY MM DD X Y Z mX mY mZ`
