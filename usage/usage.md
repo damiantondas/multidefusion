@@ -46,6 +46,7 @@ The description of initial parameters:
 
     integration = run_fusion(stations="ALL", path="/your/path/to/multidefusion_trial/", method="forward-backward", noise=0.03)
     ```
+    
 2. An example script to run fusion for `ID01` station in `C:\path\to\folder\` folder using `forward` method with `0.05` mm/day<sup>2</sup> noise level.
 
     ```

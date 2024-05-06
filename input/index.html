@@ -763,11 +763,11 @@
 <ol>
 <li>GNSS: "GNSS.txt" (Mandatory file)</li>
 <li>InSAR: (e.g., "DInSAR_Asc_1.txt", "DInSAR_Asc_2.txt", "SBAS_51_main.txt", "PSI_123.txt", etc.).<ul>
-<li>'<em>Type</em>'_'<em>Orbit</em>'.txt OR</li>
-<li>'<em>Type</em>'_'<em>Orbit</em>'_'<em>Element</em>'.txt. The '<em>Element</em>' part is not mandatory. Where:<ul>
+<li>'<em>Type</em>'_'<em>Orbit</em>'.txt OR,</li>
+<li>'<em>Type</em>'_'<em>Orbit</em>'_'<em>Element</em>'.txt ('<em>Element</em>' is not mandatory):<ul>
 <li>'<em>Type</em>' is a mandatory signature of the InSAR calculation method. Allowed values: "DInSAR", "SBAS" or "PSI".</li>
 <li>'<em>Orbit</em>' is a mandatory signature of InSAR orbit. Allowed types: <code>str</code> or <code>int</code>, e.g., "Asc", "Desc", "51", "123", etc.</li>
-<li>'<em>Element</em>' is a non-mandatory signature of a particular pixel or PS point. Allowed types: <code>str</code> or <code>int</code>, e.g., "1", "10254", "main", etc.</li>
+<li>'<em>Element</em>' is a non-mandatory signature of a particular pixel or PS point. Allowed types: <code>str</code> or <code>int</code>, e.g., "1", "102fa", "main", etc.</li>
 </ul>
 </li>
 </ul>
@@ -954,7 +954,7 @@
 </tr>
 </tbody>
 </table>
-<p><strong>For all InSAR methods, the <em>ERROR</em> column can be replaced by: <em>COH</em> (<code>float</code>): <em>Coherence factor</em>. The coherence will be converted to the error value expressed in the metric domain using the theory presented in <a href="https://repository.tudelft.nl/islandora/object/uuid%3Aa83859d5-c034-427e-b6a9-114c4b008d19">Hanssen, 2001</a> and <a href="https://doi.org/10.1007/s00190-023-01789-z">Tondaś et al., 2023</a>. To calculate the error using the coherence factor, the wavelength of the Sentinel-1 is applied.</strong></p>
+<p><em>For all InSAR methods, the </em>ERROR<em> column can be replaced by: </em>COH<em> (<code>float</code>): </em>Coherence factor<em>. The coherence will be converted to the error value expressed in the metric domain using the theory presented in <a href="https://repository.tudelft.nl/islandora/object/uuid%3Aa83859d5-c034-427e-b6a9-114c4b008d19">Hanssen, 2001</a> and <a href="https://doi.org/10.1007/s00190-023-01789-z">Tondaś et al., 2023</a>. To calculate the error using the coherence factor, the wavelength of the Sentinel-1 is applied.</em></p>
 </li>
 </ol>
 <h4 id="to-get-the-trial-dataset-of-input-files-for-the-multidefusion-library-see-trial-packages">To get the trial dataset of input files for the MultiDEFusion library, see <a href="../trial/">Trial packages</a>.<a class="headerlink" href="#to-get-the-trial-dataset-of-input-files-for-the-multidefusion-library-see-trial-packages" title="Permanent link">&para;</a></h4>
@@ -982,7 +982,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-05-05T08:31:01+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-05-05</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-05-06T07:44:40+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-05-06</span>
   </span>
 
     
