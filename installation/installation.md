@@ -10,7 +10,11 @@ pip install multidefusion
 
 If you do not have [pip](https://pip.pypa.io) installed, you can find instructions to install pip [here](http://docs.python-guide.org/en/latest/starting/installation/).
 
-## Python Integrated Development Environments
+## Python Requirements
+
+This library is compatible with Python 3.8 and later versions.
+
+## Integrated Development Environments
 
 The library works in the Python environment. To run the integration procedure, the usage of one of the Python Integrated Development Environments (IDEs) is required. The current version of the library has been tested on four different IDEs: [Spyder](https://www.spyder-ide.org/), [PyCharm](https://www.jetbrains.com/pycharm/), [Visual Studio Code](https://code.visualstudio.com/), and [Jupyter Notebook](https://jupyter.org/). Before starting the fusion process, ensure that your IDE is configured correctly.
 

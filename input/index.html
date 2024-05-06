@@ -761,13 +761,13 @@
 <h2 id="the-structure-of-names-of-input-file">The structure of names of input file:<a class="headerlink" href="#the-structure-of-names-of-input-file" title="Permanent link">&para;</a></h2>
 <p>The following files have to be located in the defined folder, the signature of which is given in the <code>stations</code> parameter of the <code>run_fusion</code> procedure (see <a href="../usage/">Usage</a>).</p>
 <ol>
-<li>GNSS: "GNSS.txt" (Mandatory file)</li>
+<li>GNSS: <em>GNSS.txt</em> (Mandatory file)</li>
 <li>InSAR: (e.g., "DInSAR_Asc_1.txt", "DInSAR_Asc_2.txt", "SBAS_51_main.txt", "PSI_123.txt", etc.).<ul>
-<li>'<em>Type</em>'_'<em>Orbit</em>'.txt OR,</li>
-<li>'<em>Type</em>'_'<em>Orbit</em>'_'<em>Element</em>'.txt ('<em>Element</em>' is not mandatory):<ul>
-<li>'<em>Type</em>' is a mandatory signature of the InSAR calculation method. Allowed values: "DInSAR", "SBAS" or "PSI".</li>
-<li>'<em>Orbit</em>' is a mandatory signature of InSAR orbit. Allowed types: <code>str</code> or <code>int</code>, e.g., "Asc", "Desc", "51", "123", etc.</li>
-<li>'<em>Element</em>' is a non-mandatory signature of a particular pixel or PS point. Allowed types: <code>str</code> or <code>int</code>, e.g., "1", "102fa", "main", etc.</li>
+<li><em>Type</em>_<em>Orbit.txt</em> or,</li>
+<li><em>Type</em>_<em>Orbit</em>_<em>Element.txt</em> (<em>Element</em> is not mandatory):<ul>
+<li><em>Type</em> is a mandatory signature of the InSAR calculation method. Allowed values: "DInSAR", "SBAS" or "PSI".</li>
+<li><em>Orbit</em> is a mandatory signature of InSAR orbit. Allowed types: <code>str</code> or <code>int</code>, e.g., "Asc", "Desc", "51", "123", etc.</li>
+<li><em>Element</em> is a non-mandatory signature of a particular pixel or PS point. Allowed types: <code>str</code> or <code>int</code>, e.g., "1", "102fa", "main", etc.</li>
 </ul>
 </li>
 </ul>
@@ -775,11 +775,11 @@
 </ol>
 <h2 id="restrictions-on-the-input-files">Restrictions on the input files:<a class="headerlink" href="#restrictions-on-the-input-files" title="Permanent link">&para;</a></h2>
 <ol>
-<li>The "GNSS.txt" is a mandatory file.</li>
-<li>The InSAR '<em>Type</em>' can be realised only by the "DInSAR", "SBAS" or "PSI" signature.</li>
-<li>The number of distinct InSAR '<em>Orbit</em>' signatures must be less than or equal to 3.</li>
-<li>The number of distinct InSAR '<em>Element</em>' signatures within particular '<em>Orbit</em>' must be less than or equal to 9.</li>
-<li>The number of distinct InSAR '<em>Element</em>' signatures within particular '<em>Type</em>' must be less than or equal to 10.</li>
+<li>The <em>GNSS.txt</em> is a mandatory file.</li>
+<li>The InSAR <em>Type</em> can be realised only by the "DInSAR", "SBAS" or "PSI" signature.</li>
+<li>The number of distinct InSAR <em>Orbit</em> signatures must be less than or equal to 3.</li>
+<li>The number of distinct InSAR <em>Element</em> signatures within particular <em>Orbit</em> must be less than or equal to 9.</li>
+<li>The number of distinct InSAR <em>Element</em> signatures within particular <em>Type</em> must be less than or equal to 10.</li>
 </ol>
 <h2 id="headers-and-data-columns-structure-in-the-input-files">Headers and data columns structure in the input files:<a class="headerlink" href="#headers-and-data-columns-structure-in-the-input-files" title="Permanent link">&para;</a></h2>
 <ol>
@@ -982,7 +982,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-05-06T07:44:40+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-05-06</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-05-06T08:02:56+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-05-06</span>
   </span>
 
     
